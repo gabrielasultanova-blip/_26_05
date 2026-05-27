@@ -1,0 +1,55 @@
+﻿using _26_05;
+using _26_05.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Controller.Business
+{
+    public class OrderItemController
+    {
+        public OnlineShop_Db context = new OnlineShop_Db();
+
+        async Task AddAsync(OrderItem orderItem)
+        {
+            await context.OrderItems.AddAsync(orderItem);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<List<OrderItem>> GetAllAsync()
+        {
+            return await context.OrderItems
+                .Include(oi => oi.Order)
+                .Include(oi => oi.Book)
+                .ToListAsync();
+        }
+
+        public async Task<OrderItem?> GetByIdAsync(int id)
+        {
+            return await context.OrderItems
+                .Include(oi => oi.Order)
+                .Include(oi => oi.Book)
+                .FirstOrDefaultAsync(oi => oi.Id == id);
+        }
+
+        public async Task UpdateAsync(OrderItem orderItem)
+        {
+            context.OrderItems.Update(orderItem);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAsync(int id)
+        {
+            var orderItem = await context.OrderItems.FindAsync(id);
+
+            if (orderItem != null)
+            {
+                context.OrderItems.Remove(orderItem);
+                await context.SaveChangesAsync();
+            }
+        }
+    }
+}
