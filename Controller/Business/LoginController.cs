@@ -11,7 +11,16 @@ namespace Controller.Business
 {
     public class LogInController
     {
-        public OnlineShop_Db context = new OnlineShop_Db();
+        private OnlineShop_Db context { get; set; }
+
+        public LogInController()
+        {
+            context = new OnlineShop_Db();
+        }
+        public LogInController(OnlineShop_Db context_1)
+        {
+            context = context_1;
+        }
 
         public async Task<User> Login(string username, string password)
         {

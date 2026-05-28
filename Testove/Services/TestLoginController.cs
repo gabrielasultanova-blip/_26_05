@@ -17,21 +17,24 @@ namespace Testove.Services
         {
             var context = TestOnlineShopDb.CreateContext();
 
-            context.Users.Add(new User
+            User user = new User
             {
                 Username = "ivan",
                 Password = "123",
+                Email = "ivan@gmail.com",
                 Role = Role.User
-            });
-
+            };
+            context.Users.Add(user);
+        
+           
             await context.SaveChangesAsync();
 
-            LogInController c = new LogInController();
+            LogInController c = new LogInController(context);
 
-            User? user = await c.Login("ivan", "123");
+            User? user1 = await c.Login("ivan", "123");
 
-            Assert.IsNotNull(user);
-            Assert.AreEqual("ivan", user.Username);
+            Assert.That(user1 != null);
+            Assert.That("ivan" == user1.Username);
         }
     }
 }

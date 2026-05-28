@@ -17,8 +17,11 @@ namespace Testove.Helpers
                 .Options;
 
             OnlineShop_Db context = new OnlineShop_Db(options);
-            
-            context.Database.EnsureCreated();
+
+            if(!context.Database.EnsureCreated())
+            {
+                throw new Exception("Failed to create in-memory database.");
+            }// tuka
 
             return context;
         }

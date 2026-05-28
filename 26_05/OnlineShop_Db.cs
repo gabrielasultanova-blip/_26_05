@@ -17,7 +17,7 @@ namespace _26_05
         {
         }
 
-        public OnlineShop_Db(DbContextOptions<OnlineShop_Db> options)
+        public OnlineShop_Db(DbContextOptions<OnlineShop_Db> options) : base(options)
         {
         }
 

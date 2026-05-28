@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Business\Business.csproj" />
     <ProjectReference Include="..\26_05\_26_05.csproj" />
+    <ProjectReference Include="..\Controller\Controller.csproj" />
   </ItemGroup>
 
 </Project>

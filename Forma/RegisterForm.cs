@@ -1,17 +1,6 @@
-﻿using Business.Controller;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using _26_05.Entities;
-using Business.Controller;
-using _26_05;
+﻿using _26_05.Entities;
 using _26_05.Enums;
+using Controller.Business;
 
 namespace Forma
 {
@@ -34,7 +23,7 @@ namespace Forma
                 Role = Role.User
             };
 
-            await userController.AddUserAsync(user);
+            await userController.AddAsync(user);
 
             MessageBox.Show("Успешна регистрация!!!");
 
