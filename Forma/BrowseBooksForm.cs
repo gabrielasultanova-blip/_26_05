@@ -21,5 +21,13 @@ namespace Forma
         {
 
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            ClientForm form = new ClientForm();
+
+            form.ShowDialog();
+            this.Hide();
+        }
     }
 }

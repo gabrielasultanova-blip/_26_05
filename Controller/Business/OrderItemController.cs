@@ -35,9 +35,14 @@ namespace Controller.Business
                 .FirstOrDefaultAsync(oi => oi.Id == id);
         }
 
-        public async Task UpdateAsync(OrderItem orderItem)
+        public async Task UpdateAsync(int id, OrderItem updated)
         {
-            context.OrderItems.Update(orderItem);
+            var item = await context.OrderItems.FindAsync(id);
+
+            item.Quantity = updated.Quantity;
+            item.OrderId = updated.OrderId;
+            item.BookId = updated.BookId;
+
             await context.SaveChangesAsync();
         }
 

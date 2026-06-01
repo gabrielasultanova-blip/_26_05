@@ -26,9 +26,15 @@ namespace Controller.Business
                 .ToListAsync();
         }
 
-        public async Task UpdateAsync(Author author)
+        public async Task UpdateAsync(int id, Author updated)
         {
-            context.Authors.Update(author);
+            var author = await context.Authors.FindAsync(id);
+
+            author.FirstName = updated.FirstName;
+            author.LastName = updated.LastName;
+            author.Age = updated.Age;
+            author.Nationality = updated.Nationality;
+
             await context.SaveChangesAsync();
         }
 

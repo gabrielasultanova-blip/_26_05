@@ -34,6 +34,7 @@
             button3 = new Button();
             button4 = new Button();
             button5 = new Button();
+            button6 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -47,54 +48,70 @@
             // 
             // button1
             // 
-            button1.Location = new Point(77, 195);
+            button1.Location = new Point(57, 208);
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 1;
             button1.Text = "Автори";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(83, 243);
+            button2.Location = new Point(296, 208);
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 2;
             button2.Text = "Книги";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
-            button3.Location = new Point(269, 257);
+            button3.Location = new Point(411, 208);
             button3.Name = "button3";
             button3.Size = new Size(94, 29);
             button3.TabIndex = 3;
             button3.Text = "Поръчки";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
-            button4.Location = new Point(417, 254);
+            button4.Location = new Point(177, 208);
             button4.Name = "button4";
             button4.Size = new Size(105, 29);
             button4.TabIndex = 4;
             button4.Text = "Издателства";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
-            button5.Location = new Point(546, 286);
+            button5.Location = new Point(521, 208);
             button5.Name = "button5";
             button5.Size = new Size(105, 29);
             button5.TabIndex = 5;
             button5.Text = "Поребители";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(622, 398);
+            button6.Name = "button6";
+            button6.Size = new Size(128, 29);
+            button6.TabIndex = 6;
+            button6.Text = "Главно меню";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // AdminForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
@@ -115,5 +132,6 @@
         private Button button3;
         private Button button4;
         private Button button5;
+        private Button button6;
     }
 }

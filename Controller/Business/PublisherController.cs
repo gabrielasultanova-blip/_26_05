@@ -26,9 +26,13 @@ namespace Controller.Business
                 .ToListAsync();
         }
 
-        public async Task UpdateAsync(Publisher publisher)
+        public async Task UpdateAsync(int id, Publisher updated)
         {
-            context.Publishers.Update(publisher);
+            var publisher = await context.Publishers.FindAsync(id);
+
+            publisher.Name = updated.Name;
+            publisher.Country = updated.Country;
+
             await context.SaveChangesAsync();
         }
 

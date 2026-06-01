@@ -18,11 +18,6 @@ namespace _26_05.Entities
         public DateTime OrderDate { get; set; }
 
         [Required]
-        [Range(0.01, 10000)]
-        [Column(TypeName = "decimal(18,2)")]
-        public decimal TotalPrice { get; set; }
-
-        [Required]
         public Status Status { get; set; }
 
         [Required]

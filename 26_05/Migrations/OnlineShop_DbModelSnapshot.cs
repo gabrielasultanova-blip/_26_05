@@ -78,8 +78,8 @@ namespace _26_05.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("PublishedOn")
-                        .HasColumnType("datetime2");
+                    b.Property<DateOnly>("PublishedOn")
+                        .HasColumnType("date");
 
                     b.Property<int>("PublisherId")
                         .HasColumnType("int");
@@ -116,9 +116,6 @@ namespace _26_05.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
@@ -142,9 +139,6 @@ namespace _26_05.Migrations
 
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");

@@ -43,8 +43,8 @@ namespace Forma
             }
             else
             {
-                UserForm userForm = new UserForm();
-                userForm.Show();
+                ClientForm clientForm = new ClientForm();
+                clientForm.Show();
             }
 
             textBox1.Clear();

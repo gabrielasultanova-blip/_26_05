@@ -38,7 +38,7 @@ namespace _26_05.Entities
         public bool InStock { get; set; } = true;
 
         [Required]
-        public DateTime PublishedOn { get; set; }
+        public DateOnly PublishedOn { get; set; }
 
         [Required]
         public int AuthorId { get; set; }

@@ -35,9 +35,21 @@ namespace Controller.Business
                 .FirstOrDefaultAsync(b => b.Id == id);
         }
 
-        public async Task UpdateAsync(Book book)
+        public async Task UpdateAsync(int id, Book updated)
         {
-            context.Books.Update(book);
+            var book = await context.Books.FindAsync(id);
+
+            book.Title = updated.Title;
+            book.Genre = updated.Genre;
+            book.Price = updated.Price;
+            book.Pages = updated.Pages;
+            book.Quantity = updated.Quantity;
+            book.InStock = updated.InStock;
+            book.PublishedOn = updated.PublishedOn;
+
+            book.AuthorId = updated.AuthorId;
+            book.PublisherId = updated.PublisherId;
+
             await context.SaveChangesAsync();
         }
 
@@ -78,6 +90,13 @@ namespace Controller.Business
         {
             return await context.Books
                 .Where(b => b.InStock)
+                .ToListAsync();
+        }
+
+        public async Task<List<Book>> IsNotInStockAsync()
+        {
+            return await context.Books
+                .Where(b => !b.InStock)
                 .ToListAsync();
         }
 

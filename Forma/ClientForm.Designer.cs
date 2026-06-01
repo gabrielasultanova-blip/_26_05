@@ -51,10 +51,11 @@
             button1.TabIndex = 1;
             button1.Text = "Разгледай книги";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
-            button2.Location = new Point(468, 238);
+            button2.Location = new Point(426, 229);
             button2.Name = "button2";
             button2.Size = new Size(126, 29);
             button2.TabIndex = 2;
@@ -64,12 +65,13 @@
             // 
             // button3
             // 
-            button3.Location = new Point(362, 305);
+            button3.Location = new Point(604, 376);
             button3.Name = "button3";
-            button3.Size = new Size(124, 39);
+            button3.Size = new Size(147, 29);
             button3.TabIndex = 3;
-            button3.Text = "Моят профил";
+            button3.Text = "Начално меню";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
             // 
             // ClientForm
             // 

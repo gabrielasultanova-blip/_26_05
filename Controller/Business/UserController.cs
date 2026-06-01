@@ -27,9 +27,15 @@ namespace Controller.Business
                 .ToListAsync();
         }
 
-        public async Task UpdateAsync(User user)
+        public async Task UpdateAsync(int id, User updated)
         {
-            context.Users.Update(user);
+            var user = await context.Users.FindAsync(id);
+
+            user.Username = updated.Username;
+            user.Password = updated.Password;
+            user.Email = updated.Email;
+            user.Role = updated.Role;
+
             await context.SaveChangesAsync();
         }
 

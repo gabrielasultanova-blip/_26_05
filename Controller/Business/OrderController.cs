@@ -1,5 +1,6 @@
 ﻿using _26_05;
 using _26_05.Entities;
+using _26_05.Enums;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -53,6 +54,15 @@ namespace Controller.Business
             return await context.Orders
                 .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
                 .ToListAsync();
+        }
+
+        public async Task UpdateOrderStatus(int orderId, Status newStatus)
+        {
+            var order = await context.Orders.FindAsync(orderId);
+
+            order.Status = newStatus;
+
+            await context.SaveChangesAsync();
         }
     }
 }
