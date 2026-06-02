@@ -29,7 +29,7 @@ namespace Forma
 
             foreach (var author in authors)
             {
-                listBox1.Items.Add($"{author.Id} | {author.FirstName} {author.LastName} {author.Age}год. - {author.Nationality}");
+                listBox1.Items.Add($"{author.Id} | {author.FirstName} {author.LastName} {author.Age} год. - {author.Nationality}");
             }
         }
 
@@ -125,7 +125,7 @@ namespace Forma
                 return;
             }
 
-            int age = int.Parse(textBox6.Text);
+            int age = int.Parse(textBox8.Text);
             if (age < 18 || age > 120)
             {
                 MessageBox.Show("Възрастта трябва да бъде цяло число между 18 и 120!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -149,20 +149,7 @@ namespace Forma
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
-
-            var authors = await controller.GetAllAsync();
-
-            if (authors == null || authors.Count == 0)
-            {
-                MessageBox.Show("Няма намерени автори в базата данни.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-
-            foreach (var author in authors)
-            {
-                listBox2.Items.Add($"ID: {author.Id} | Име: {author.FirstName} {author.LastName} {author.Age} год. | Националност: {author.Nationality}");
-            }
+            
         }
 
         private async void btnRefreshDeleteList_Click(object sender, EventArgs e)
@@ -173,15 +160,15 @@ namespace Forma
         private async void button4_Click(object sender, EventArgs e)
         {
             if (listBox1.SelectedItem == null)
-        {
-            MessageBox.Show("Моля, изберете автор от списъка, когото искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
-        }
+            {
+                MessageBox.Show("Моля, изберете автор от списъка, когото искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-        string selectedItemText = listBox1.SelectedItem.ToString();
-        string idPart = selectedItemText.Split('|')[0].Trim();
-        int authorId = int.Parse(idPart);
-            
+            string selectedItemText = listBox1.SelectedItem.ToString();
+            string idPart = selectedItemText.Split('|')[0].Trim();
+            int authorId = int.Parse(idPart);
+
             var allAuthors = await controller.GetAllAsync();
             var authorToCheck = allAuthors.Find(a => a.Id == authorId);
 
@@ -197,7 +184,7 @@ namespace Forma
 
                 if (cascadeResult == DialogResult.No)
                 {
-                    return; 
+                    return;
                 }
             }
             else
@@ -211,10 +198,19 @@ namespace Forma
                 if (result == DialogResult.No) return;
             }
 
-                await controller.DeleteAsync(authorId);
-                MessageBox.Show("Авторът беше изтрит успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                await RefreshDeleteListAsync(); 
+            await controller.DeleteAsync(authorId);
+            MessageBox.Show("Авторът беше изтрит успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            await RefreshDeleteListAsync();
         }
-        
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button6_Click_1(object sender, EventArgs e)
+        {
+            await RefreshDeleteListAsync();
+        }
     }
 }

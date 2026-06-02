@@ -13,7 +13,7 @@ namespace Controller.Business
     {
         public OnlineShop_Db context = new OnlineShop_Db();
 
-        async Task AddAsync(OrderItem orderItem)
+        public async Task AddAsync(OrderItem orderItem)
         {
             await context.OrderItems.AddAsync(orderItem);
             await context.SaveChangesAsync();

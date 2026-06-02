@@ -19,46 +19,40 @@ namespace Forma
         AuthorController authorController = new AuthorController();
         PublisherController publisherController = new PublisherController();
 
-        List<Author> allAuthors = new List<Author>();
-        List<Publisher> allPublishers = new List<Publisher>();
         public BookForm()
         {
             InitializeComponent();
         }
 
-        private async void AdminBooksForm_Load(object sender, EventArgs e)
-        {
-            await RefreshDeleteListBoxAsync();
-            await LoadComboBoxDataAsync();
-        }
-
         private async Task LoadComboBoxDataAsync()
         {
-            await RefreshDeleteListBoxAsync(); 
-
-            AuthorController authorController = new AuthorController();
-            PublisherController publisherController = new PublisherController();
-
             var authors = await authorController.GetAllAsync();
-            comboBox1.DataSource = new BindingSource(authors, null);
-            comboBox1.DisplayMember = "LastName"; 
-            comboBox1.ValueMember = "Id";         
+            var authorsWithFullNames = authors.Select(a => new
+            {
+                Id = a.Id,
+                FullName = $"{a.FirstName} {a.LastName}".Trim()
+            }).ToList();
 
-            comboBox3.DataSource = new BindingSource(authors, null);
-            comboBox3.DisplayMember = "LastName";
+            comboBox1.DataSource = new BindingSource(authorsWithFullNames, null);
+            comboBox1.DisplayMember = "FullName";
+            comboBox1.ValueMember = "Id";
+
+            comboBox3.DataSource = new BindingSource(authorsWithFullNames, null);
+            comboBox3.DisplayMember = "FullName";
             comboBox3.ValueMember = "Id";
 
             var publishers = await publisherController.GetAllAsync();
+
             comboBox2.DataSource = new BindingSource(publishers, null);
-            comboBox2.DisplayMember = "Name"; 
-            comboBox2.ValueMember = "Id";      
+            comboBox2.DisplayMember = "Name";
+            comboBox2.ValueMember = "Id";
 
             comboBox4.DataSource = new BindingSource(publishers, null);
             comboBox4.DisplayMember = "Name";
             comboBox4.ValueMember = "Id";
         }
-        
-    
+
+
 
         private async Task RefreshDeleteListBoxAsync()
         {
@@ -67,7 +61,7 @@ namespace Forma
 
             foreach (var book in books)
             {
-                listBox1.Items.Add($"{book.Id} | {book.Title} - {book.Author} - {book.Price:C2}euro. (Кол: {book.Quantity})");
+                listBox1.Items.Add($"{book.Id} | {book.Title} - {book.Author.FirstName} {book.Author.LastName} - {Math.Round(book.Price,2)} euro (кол: {book.Quantity})");
             }
         }
 
@@ -97,6 +91,8 @@ namespace Forma
 
             if (comboBox1.Items.Count > 0) comboBox1.SelectedIndex = 0;
             if (comboBox2.Items.Count > 0) comboBox2.SelectedIndex = 0;
+            if (comboBox3.Items.Count > 0) comboBox3.SelectedIndex = 0;
+            if (comboBox4.Items.Count > 0) comboBox4.SelectedIndex = 0;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -167,6 +163,7 @@ namespace Forma
             await controller.AddAsync(newBook);
             MessageBox.Show("Книгата беше добавена успешно!");
             await RefreshDeleteListBoxAsync();
+            await LoadComboBoxDataAsync();
             ClearTexBoxes();
         }
 
@@ -239,6 +236,7 @@ namespace Forma
             await controller.UpdateAsync(bookId, updatedBook);
             MessageBox.Show("Книгата беше редактирана успешно!");
             await RefreshDeleteListBoxAsync();
+            await LoadComboBoxDataAsync();
             ClearTexBoxes();
         }
 
@@ -254,38 +252,35 @@ namespace Forma
             string idPart = selectedItemText.Split('|')[0].Trim();
             int bookId = int.Parse(idPart);
 
-                var bookToCheck = await controller.GetByIdAsync(bookId);
-                if (bookToCheck != null && bookToCheck.OrderItems != null && bookToCheck.OrderItems.Count > 0)
-                {
-                    MessageBox.Show($"Книгата '{bookToCheck.Title}' не може да бъде изтрита, защото участва в {bookToCheck.OrderItems.Count} направени поръчки!",
-                                    "Забранено изтриване", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
-                }
-
-                DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете книгата с ID {bookId}?",
-                    "Потвърждение за изтриване",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    try
-                    {
-                        await controller.DeleteAsync(bookId);
-                        MessageBox.Show("Книгата беше изтрита успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        await RefreshDeleteListBoxAsync(); 
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"Грешка при изтриване: {ex.Message}", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+            var bookToCheck = await controller.GetByIdAsync(bookId);
+            if (bookToCheck != null && bookToCheck.OrderItems != null && bookToCheck.OrderItems.Count > 0)
+            {
+                MessageBox.Show($"Книгата '{bookToCheck.Title}' не може да бъде изтрита, защото участва в {bookToCheck.OrderItems.Count} направени поръчки!",
+                                "Забранено изтриване", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
             }
 
-        private async void btnRefreshDeleteList_Click(object sender, EventArgs e)
-        {
+            DialogResult result = MessageBox.Show(
+                $"Наистина ли искате да изтриете книгата с ID {bookId}?",
+                "Потвърждение за изтриване",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    await controller.DeleteAsync(bookId);
+                    MessageBox.Show("Книгата беше изтрита успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await RefreshDeleteListBoxAsync();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Грешка при изтриване: {ex.Message}", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
             await RefreshDeleteListBoxAsync();
+            await LoadComboBoxDataAsync();
         }
 
         private async void button5_Click(object sender, EventArgs e)
@@ -293,24 +288,32 @@ namespace Forma
             listBox2.Items.Clear();
             listBox3.Items.Clear();
 
-                var inStockBooks = await controller.IsInStockAsync();
-                foreach (var book in inStockBooks)
-                {
-                    listBox2.Items.Add($"{book.Title} - {book.Author} (Налични: {book.Quantity} бр.) - {book.Price:C2}");
-                }
+            var inStockBooks = await controller.IsInStockAsync();
+            foreach (var book in inStockBooks)
+            {
+                listBox2.Items.Add($"{book.Title} - {book.Author} (Налични: {book.Quantity} бр.) - {book.Price:C2}");
+            }
 
-                var notInStockBooks = await controller.IsNotInStockAsync();
-                foreach (var book in notInStockBooks)
-                {
-                    listBox3.Items.Add($"{book.Title} - {book.Author} (Няма в наличност)");
-                }
+            var notInStockBooks = await controller.IsNotInStockAsync();
+            foreach (var book in notInStockBooks)
+            {
+                listBox3.Items.Add($"{book.Title} - {book.Author} (Няма в наличност)");
+            }
 
-                if (inStockBooks.Count == 0 && notInStockBooks.Count == 0)
-                {
-                    MessageBox.Show("Няма регистрирани книги в базата данни.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            if (inStockBooks.Count == 0 && notInStockBooks.Count == 0)
+            {
+                MessageBox.Show("Няма регистрирани книги в базата данни.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
+        private async void BookForm_Load(object sender, EventArgs e)
+        {
+            await LoadComboBoxDataAsync();
+        }
 
+        private async void button6_Click(object sender, EventArgs e)
+        {
+            await RefreshDeleteListBoxAsync();
+        }
     }
 }

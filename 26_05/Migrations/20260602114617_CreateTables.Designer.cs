@@ -12,7 +12,7 @@ using _26_05;
 namespace _26_05.Migrations
 {
     [DbContext(typeof(OnlineShop_Db))]
-    [Migration("20260601063829_CreateTables")]
+    [Migration("20260602114617_CreateTables")]
     partial class CreateTables
     {
         /// <inheritdoc />

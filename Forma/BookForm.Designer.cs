@@ -49,6 +49,8 @@
             textBox2 = new TextBox();
             textBox1 = new TextBox();
             tabPage2 = new TabPage();
+            comboBox4 = new ComboBox();
+            comboBox3 = new ComboBox();
             button3 = new Button();
             textBox15 = new TextBox();
             textBox14 = new TextBox();
@@ -67,6 +69,7 @@
             label11 = new Label();
             label10 = new Label();
             tabPage3 = new TabPage();
+            button6 = new Button();
             button4 = new Button();
             listBox1 = new ListBox();
             label19 = new Label();
@@ -77,8 +80,6 @@
             listBox2 = new ListBox();
             button5 = new Button();
             button1 = new Button();
-            comboBox3 = new ComboBox();
-            comboBox4 = new ComboBox();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -303,6 +304,22 @@
             tabPage2.Text = "Промени Книга";
             tabPage2.UseVisualStyleBackColor = true;
             // 
+            // comboBox4
+            // 
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(541, 226);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(151, 28);
+            comboBox4.TabIndex = 20;
+            // 
+            // comboBox3
+            // 
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(544, 181);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(151, 28);
+            comboBox3.TabIndex = 19;
+            // 
             // button3
             // 
             button3.Location = new Point(634, 360);
@@ -445,6 +462,7 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button6);
             tabPage3.Controls.Add(button4);
             tabPage3.Controls.Add(listBox1);
             tabPage3.Controls.Add(label19);
@@ -455,6 +473,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Изтрий Книга";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(674, 308);
+            button6.Name = "button6";
+            button6.Size = new Size(94, 29);
+            button6.TabIndex = 3;
+            button6.Text = "Покажи";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += this.button6_Click;
             // 
             // button4
             // 
@@ -552,22 +580,6 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(544, 181);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(151, 28);
-            comboBox3.TabIndex = 19;
-            // 
-            // comboBox4
-            // 
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(541, 226);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(151, 28);
-            comboBox4.TabIndex = 20;
-            // 
             // BookForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -577,6 +589,7 @@
             Controls.Add(tabControl1);
             Name = "BookForm";
             Text = "BookForm";
+            Load += BookForm_Load;
             tabControl1.ResumeLayout(false);
             tabPage1.ResumeLayout(false);
             tabPage1.PerformLayout();
@@ -642,5 +655,6 @@
         private ComboBox comboBox1;
         private ComboBox comboBox4;
         private ComboBox comboBox3;
+        private Button button6;
     }
 }

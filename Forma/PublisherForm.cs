@@ -193,23 +193,18 @@ namespace Forma
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear();
-
-                var publishers = await controller.GetAllAsync();
-
-                if (publishers == null || publishers.Count == 0)
-                {
-                    MessageBox.Show("Няма намерени издателства в базата данни.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return;
-                }
-
-                foreach (var publisher in publishers)
-                {
-                    string displayLine = $"ID: {publisher.Id} | {publisher.Name} | Държава: {publisher.Country}";
-
-                    listBox2.Items.Add(displayLine);
-                }
             
+
+        }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void button6_Click_1(object sender, EventArgs e)
+        {
+            await RefreshDeleteListBoxAsync();
         }
     }
 }

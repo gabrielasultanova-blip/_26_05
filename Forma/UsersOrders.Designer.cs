@@ -41,16 +41,28 @@
             label2 = new Label();
             richTextBox1 = new RichTextBox();
             button1 = new Button();
+            tabPage3 = new TabPage();
+            button5 = new Button();
+            groupBox1 = new GroupBox();
+            radioButton4 = new RadioButton();
+            radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            textBox2 = new TextBox();
+            label3 = new Label();
             button4 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
+            tabPage3.SuspendLayout();
+            groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
+            tabControl1.Controls.Add(tabPage3);
             tabControl1.Location = new Point(33, 33);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -173,6 +185,103 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
+            // tabPage3
+            // 
+            tabPage3.Controls.Add(button5);
+            tabPage3.Controls.Add(groupBox1);
+            tabPage3.Controls.Add(textBox2);
+            tabPage3.Controls.Add(label3);
+            tabPage3.Location = new Point(4, 29);
+            tabPage3.Name = "tabPage3";
+            tabPage3.Padding = new Padding(3);
+            tabPage3.Size = new Size(778, 439);
+            tabPage3.TabIndex = 2;
+            tabPage3.Text = "Статус";
+            tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            button5.Location = new Point(124, 330);
+            button5.Name = "button5";
+            button5.Size = new Size(94, 29);
+            button5.TabIndex = 3;
+            button5.Text = "Промени статус";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(radioButton4);
+            groupBox1.Controls.Add(radioButton3);
+            groupBox1.Controls.Add(radioButton2);
+            groupBox1.Controls.Add(radioButton1);
+            groupBox1.Location = new Point(133, 141);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(250, 141);
+            groupBox1.TabIndex = 2;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Избери статус:";
+            // 
+            // radioButton4
+            // 
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new Point(18, 113);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(100, 24);
+            radioButton4.TabIndex = 3;
+            radioButton4.TabStop = true;
+            radioButton4.Text = "Отменена";
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(18, 86);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(105, 24);
+            radioButton3.TabIndex = 2;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "Изпратена";
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(18, 56);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(109, 24);
+            radioButton2.TabIndex = 1;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "Завършена";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(18, 26);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(120, 24);
+            radioButton1.TabIndex = 0;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "Обрабова се";
+            radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(258, 46);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(125, 27);
+            textBox2.TabIndex = 1;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(129, 46);
+            label3.Name = "label3";
+            label3.Size = new Size(92, 20);
+            label3.TabIndex = 0;
+            label3.Text = "Поръчка ID:";
+            // 
             // button4
             // 
             button4.Location = new Point(813, 507);
@@ -197,6 +306,10 @@
             tabPage1.PerformLayout();
             tabPage2.ResumeLayout(false);
             tabPage2.PerformLayout();
+            tabPage3.ResumeLayout(false);
+            tabPage3.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -216,5 +329,14 @@
         private TextBox textBox1;
         private Label label2;
         private RichTextBox richTextBox1;
+        private TabPage tabPage3;
+        private Label label3;
+        private Button button5;
+        private GroupBox groupBox1;
+        private RadioButton radioButton3;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+        private TextBox textBox2;
+        private RadioButton radioButton4;
     }
 }

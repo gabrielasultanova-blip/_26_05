@@ -60,9 +60,11 @@ namespace Controller.Business
         {
             var order = await context.Orders.FindAsync(orderId);
 
-            order.Status = newStatus;
-
-            await context.SaveChangesAsync();
+            if (order != null)
+            {
+                order.Status = newStatus;
+                await context.SaveChangesAsync();
+            }
         }
     }
 }

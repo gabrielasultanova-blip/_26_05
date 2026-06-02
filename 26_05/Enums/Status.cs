@@ -11,6 +11,7 @@ namespace _26_05.Enums
         Pending,
         Processing,
         Completed,
+        Shipped,
         Cancelled
     }
 }

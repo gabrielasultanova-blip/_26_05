@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controller.Business;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,13 @@ namespace Forma
 {
     public partial class OrderForm : Form
     {
+        OrderController controller = new OrderController();
+        private int loggedUserId;
         public OrderForm()
         {
             InitializeComponent();
         }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -23,6 +27,11 @@ namespace Forma
 
             form.ShowDialog();
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

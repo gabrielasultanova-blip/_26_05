@@ -44,19 +44,15 @@
             label4 = new Label();
             label3 = new Label();
             tabPage3 = new TabPage();
+            button6 = new Button();
             button4 = new Button();
             listBox1 = new ListBox();
             label6 = new Label();
-            tabPage4 = new TabPage();
-            button5 = new Button();
-            listBox2 = new ListBox();
-            label7 = new Label();
             button1 = new Button();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
-            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -64,7 +60,6 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(35, 34);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
@@ -207,6 +202,7 @@
             // 
             // tabPage3
             // 
+            tabPage3.Controls.Add(button6);
             tabPage3.Controls.Add(button4);
             tabPage3.Controls.Add(listBox1);
             tabPage3.Controls.Add(label6);
@@ -217,6 +213,16 @@
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Изтрий";
             tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(574, 198);
+            button6.Name = "button6";
+            button6.Size = new Size(94, 29);
+            button6.TabIndex = 3;
+            button6.Text = "Покажи";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click_1;
             // 
             // button4
             // 
@@ -245,46 +251,6 @@
             label6.TabIndex = 0;
             label6.Text = "Всички издателства:";
             // 
-            // tabPage4
-            // 
-            tabPage4.Controls.Add(button5);
-            tabPage4.Controls.Add(listBox2);
-            tabPage4.Controls.Add(label7);
-            tabPage4.Location = new Point(4, 29);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(3);
-            tabPage4.Size = new Size(694, 306);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Всички";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.Location = new Point(564, 254);
-            button5.Name = "button5";
-            button5.Size = new Size(94, 29);
-            button5.TabIndex = 2;
-            button5.Text = "Покажи";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(42, 87);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(357, 184);
-            listBox2.TabIndex = 1;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(42, 39);
-            label7.Name = "label7";
-            label7.Size = new Size(148, 20);
-            label7.TabIndex = 0;
-            label7.Text = "Всички издателства:";
-            // 
             // button1
             // 
             button1.Location = new Point(681, 397);
@@ -311,8 +277,6 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -323,7 +287,6 @@
         private TabPage tabPage2;
         private TabPage tabPage3;
         private Button button1;
-        private TabPage tabPage4;
         private TextBox textBox4;
         private TextBox textBox3;
         private Button button3;
@@ -339,8 +302,6 @@
         private Button button4;
         private ListBox listBox1;
         private Label label6;
-        private Button button5;
-        private ListBox listBox2;
-        private Label label7;
+        private Button button6;
     }
 }

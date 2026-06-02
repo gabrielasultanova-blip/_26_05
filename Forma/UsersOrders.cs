@@ -1,4 +1,6 @@
-﻿using Controller.Business;
+﻿using _26_05.Entities;
+using _26_05.Enums;
+using Controller.Business;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -101,48 +103,84 @@ namespace Forma
 
             int orderId = int.Parse(textBox1.Text.Trim());
 
-                    var order = await controller.GetByIdAsync(orderId);
+            var order = await controller.GetByIdAsync(orderId);
 
-                    if (order == null)
-                    {
-                        MessageBox.Show($"Не е намерена поръчка с ID: {orderId}!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+            if (order == null)
+            {
+                MessageBox.Show($"Не е намерена поръчка с ID: {orderId}!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
-                    string clientUsername = "";
-                    string clientEmail = "";
+            string clientUsername = "";
+            string clientEmail = "";
 
-                    if (order.User != null)
-                    {
-                        clientUsername = order.User.Username;
-                        clientEmail = order.User.Email;
-                    }
-                    else
-                    {
-                        clientUsername = "Няма информация";
-                        clientEmail = "Няма информация";
-                    }
+            if (order.User != null)
+            {
+                clientUsername = order.User.Username;
+                clientEmail = order.User.Email;
+            }
+            else
+            {
+                clientUsername = "Няма информация";
+                clientEmail = "Няма информация";
+            }
 
-                    int totalItemsCount = order.OrderItems != null ? order.OrderItems.Count : 0;
+            int totalItemsCount = order.OrderItems != null ? order.OrderItems.Count : 0;
 
-                    string orderDetails = $"=== ДЕТАЙЛИ ЗА ПОРЪЧКА № {order.Id} ===\n\n" +
-                                          $" Направена на: {order.OrderDate:dd.MM.yyyy г. в HH:mm ч.}\n" +
-                                          $" Статус: {order.Status}\n\n" +
-                                          $" --- ДАННИ ЗА КЛИЕНТА ---\n" +
-                                          $" Потребителско име: {clientUsername}\n" +
-                                          $" Е-мейл адрес: {clientEmail}\n" +
-                                          $" Потребител ID: {order.UserId}\n\n" +
-                                          $" --- СЪДЪРЖАНИЕ ---\n" +
-                                          $" Брой различни артикули: {totalItemsCount} бр.\n" +
-                                          $"=====================================";
+            string orderDetails = $"=== ДЕТАЙЛИ ЗА ПОРЪЧКА № {order.Id} ===\n\n" +
+                                  $" Направена на: {order.OrderDate:dd.MM.yyyy г. в HH:mm ч.}\n" +
+                                  $" Статус: {order.Status}\n\n" +
+                                  $" --- ДАННИ ЗА КЛИЕНТА ---\n" +
+                                  $" Потребителско име: {clientUsername}\n" +
+                                  $" Е-мейл адрес: {clientEmail}\n" +
+                                  $" Потребител ID: {order.UserId}\n\n" +
+                                  $" --- СЪДЪРЖАНИЕ ---\n" +
+                                  $" Брой различни артикули: {totalItemsCount} бр.\n" +
+                                  $"=====================================";
 
             richTextBox1.Text = orderDetails;
             textBox1.Clear();
-                }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
+
+        private async void button5_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(textBox2.Text))
+            {
+                MessageBox.Show("Моля, въведете ID на поръчка!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int orderId = int.Parse(textBox2.Text.Trim());
+
+            _26_05.Enums.Status newStatus = _26_05.Enums.Status.Pending;
+
+            if (radioButton1.Checked)
+            {
+                newStatus = _26_05.Enums.Status.Processing;
+            }
+            else if (radioButton2.Checked)
+            {
+                newStatus = _26_05.Enums.Status.Completed;
+            }
+            else if (radioButton3.Checked)
+            {
+                newStatus = _26_05.Enums.Status.Shipped;
+            }
+            else if (radioButton4.Checked)
+            {
+                newStatus = _26_05.Enums.Status.Cancelled;
+            }
+
+            await controller.UpdateOrderStatus(orderId, newStatus);
+
+            MessageBox.Show($"Статусът на поръчка №{orderId} беше сменен на {newStatus}!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+       
     }
 }
+
