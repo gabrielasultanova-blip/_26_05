@@ -11,7 +11,16 @@ namespace Controller.Business
 {
     public class BookController
     {
-        public OnlineShop_Db context = new OnlineShop_Db();
+        private OnlineShop_Db context { get; set; }
+
+        public BookController()
+        {
+            context = new OnlineShop_Db();
+        }
+        public BookController(OnlineShop_Db context_1)
+        {
+            context = context_1;
+        }
 
         public async Task AddAsync(Book book)
         {

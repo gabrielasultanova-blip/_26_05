@@ -30,5 +30,5 @@ namespace _26_05.Entities
         public Role Role { get; set; }
 
         public ICollection<Order> Orders { get; set; } = new List<Order>();
-    }
+    } 
 }

@@ -12,7 +12,16 @@ namespace Controller.Business
 {
     public class UserController
     {
-        public OnlineShop_Db context = new OnlineShop_Db();
+        private OnlineShop_Db context { get; set; }
+
+        public UserController()
+        {
+            context = new OnlineShop_Db();
+        }
+        public UserController(OnlineShop_Db context_1)
+        {
+            context = context_1;
+        }
 
         public async Task AddAsync(User user)
         {

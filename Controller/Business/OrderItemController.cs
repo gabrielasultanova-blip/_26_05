@@ -11,8 +11,16 @@ namespace Controller.Business
 {
     public class OrderItemController
     {
-        public OnlineShop_Db context = new OnlineShop_Db();
+        private OnlineShop_Db context { get; set; }
 
+        public OrderItemController()
+        {
+            context = new OnlineShop_Db();
+        }
+        public OrderItemController(OnlineShop_Db context_1)
+        {
+            context = context_1;
+        }
         public async Task AddAsync(OrderItem orderItem)
         {
             await context.OrderItems.AddAsync(orderItem);

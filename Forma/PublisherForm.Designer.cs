@@ -60,10 +60,12 @@
             tabControl1.Controls.Add(tabPage1);
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Location = new Point(35, 34);
+            tabControl1.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            tabControl1.Location = new Point(48, 39);
+            tabControl1.Margin = new Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(702, 339);
+            tabControl1.Size = new Size(965, 412);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -73,19 +75,22 @@
             tabPage1.Controls.Add(textBox1);
             tabPage1.Controls.Add(label2);
             tabPage1.Controls.Add(label1);
-            tabPage1.Location = new Point(4, 29);
+            tabPage1.Location = new Point(4, 32);
+            tabPage1.Margin = new Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(694, 306);
+            tabPage1.Padding = new Padding(4, 3, 4, 3);
+            tabPage1.Size = new Size(957, 376);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Добави";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            button2.Location = new Point(550, 242);
+            button2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button2.Location = new Point(180, 267);
+            button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
-            button2.Size = new Size(94, 29);
+            button2.Size = new Size(129, 41);
             button2.TabIndex = 4;
             button2.Text = "Добави";
             button2.UseVisualStyleBackColor = true;
@@ -93,24 +98,28 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(197, 133);
+            textBox2.Location = new Point(213, 153);
+            textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
+            textBox2.Size = new Size(236, 30);
             textBox2.TabIndex = 3;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(173, 66);
+            textBox1.Location = new Point(150, 67);
+            textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(125, 27);
+            textBox1.Size = new Size(266, 30);
             textBox1.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(58, 127);
+            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label2.Location = new Point(59, 153);
+            label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(75, 20);
+            label2.Size = new Size(115, 26);
             label2.TabIndex = 1;
             label2.Text = "Държава:";
             label2.Click += label2_Click;
@@ -118,9 +127,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(64, 58);
+            label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.Location = new Point(59, 67);
+            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(42, 20);
+            label1.Size = new Size(64, 26);
             label1.TabIndex = 0;
             label1.Text = "Име:";
             // 
@@ -133,41 +144,46 @@
             tabPage2.Controls.Add(label5);
             tabPage2.Controls.Add(label4);
             tabPage2.Controls.Add(label3);
-            tabPage2.Location = new Point(4, 29);
+            tabPage2.Location = new Point(4, 32);
+            tabPage2.Margin = new Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(694, 306);
+            tabPage2.Padding = new Padding(4, 3, 4, 3);
+            tabPage2.Size = new Size(957, 376);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Промени";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(205, 188);
+            textBox5.Location = new Point(176, 195);
+            textBox5.Margin = new Padding(4, 3, 4, 3);
             textBox5.Name = "textBox5";
-            textBox5.Size = new Size(125, 27);
+            textBox5.Size = new Size(232, 30);
             textBox5.TabIndex = 6;
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(182, 124);
+            textBox4.Location = new Point(132, 118);
+            textBox4.Margin = new Padding(4, 3, 4, 3);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(125, 27);
+            textBox4.Size = new Size(246, 30);
             textBox4.TabIndex = 5;
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(191, 59);
+            textBox3.Location = new Point(262, 47);
+            textBox3.Margin = new Padding(4, 3, 4, 3);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(125, 27);
+            textBox3.Size = new Size(131, 30);
             textBox3.TabIndex = 4;
             textBox3.TextChanged += textBox3_TextChanged;
             // 
             // button3
             // 
-            button3.Location = new Point(542, 252);
+            button3.Location = new Point(154, 282);
+            button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new Size(94, 29);
+            button3.Size = new Size(121, 47);
             button3.TabIndex = 3;
             button3.Text = "Промени";
             button3.UseVisualStyleBackColor = true;
@@ -176,27 +192,33 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(57, 195);
+            label5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label5.Location = new Point(37, 195);
+            label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(75, 20);
+            label5.Size = new Size(115, 26);
             label5.TabIndex = 2;
-            label5.Text = "Държавв:";
+            label5.Text = "Държавa:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(57, 142);
+            label4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(37, 118);
+            label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
-            label4.Size = new Size(42, 20);
+            label4.Size = new Size(64, 26);
             label4.TabIndex = 1;
             label4.Text = "Име:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(66, 66);
+            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label3.Location = new Point(37, 47);
+            label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
-            label3.Size = new Size(121, 20);
+            label3.Size = new Size(197, 26);
             label3.TabIndex = 0;
             label3.Text = "Издателство ID: ";
             // 
@@ -206,19 +228,21 @@
             tabPage3.Controls.Add(button4);
             tabPage3.Controls.Add(listBox1);
             tabPage3.Controls.Add(label6);
-            tabPage3.Location = new Point(4, 29);
+            tabPage3.Location = new Point(4, 32);
+            tabPage3.Margin = new Padding(4, 3, 4, 3);
             tabPage3.Name = "tabPage3";
-            tabPage3.Padding = new Padding(3);
-            tabPage3.Size = new Size(694, 306);
+            tabPage3.Padding = new Padding(4, 3, 4, 3);
+            tabPage3.Size = new Size(957, 376);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Изтрий";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            button6.Location = new Point(574, 198);
+            button6.Location = new Point(695, 220);
+            button6.Margin = new Padding(4, 3, 4, 3);
             button6.Name = "button6";
-            button6.Size = new Size(94, 29);
+            button6.Size = new Size(129, 46);
             button6.TabIndex = 3;
             button6.Text = "Покажи";
             button6.UseVisualStyleBackColor = true;
@@ -226,9 +250,10 @@
             // 
             // button4
             // 
-            button4.Location = new Point(564, 239);
+            button4.Location = new Point(695, 286);
+            button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
-            button4.Size = new Size(94, 29);
+            button4.Size = new Size(129, 46);
             button4.TabIndex = 2;
             button4.Text = "Изтрий";
             button4.UseVisualStyleBackColor = true;
@@ -237,25 +262,31 @@
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(45, 82);
+            listBox1.ItemHeight = 23;
+            listBox1.Location = new Point(28, 75);
+            listBox1.Margin = new Padding(4, 3, 4, 3);
             listBox1.Name = "listBox1";
-            listBox1.Size = new Size(382, 164);
+            listBox1.Size = new Size(602, 257);
             listBox1.TabIndex = 1;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(57, 43);
+            label6.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label6.Location = new Point(28, 26);
+            label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(148, 20);
+            label6.Size = new Size(235, 26);
             label6.TabIndex = 0;
             label6.Text = "Всички издателства:";
             // 
             // button1
             // 
-            button1.Location = new Point(681, 397);
+            button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.Location = new Point(958, 469);
+            button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
-            button1.Size = new Size(94, 29);
+            button1.Size = new Size(129, 37);
             button1.TabIndex = 1;
             button1.Text = "Назад";
             button1.UseVisualStyleBackColor = true;
@@ -263,11 +294,13 @@
             // 
             // PublisherForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1100, 518);
             Controls.Add(button1);
             Controls.Add(tabControl1);
+            Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "PublisherForm";
             Text = "PublisherForm";
             tabControl1.ResumeLayout(false);

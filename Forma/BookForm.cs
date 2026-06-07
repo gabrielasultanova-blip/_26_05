@@ -61,7 +61,7 @@ namespace Forma
 
             foreach (var book in books)
             {
-                listBox1.Items.Add($"{book.Id} | {book.Title} - {book.Author.FirstName} {book.Author.LastName} - {Math.Round(book.Price,2)} euro (кол: {book.Quantity})");
+                listBox1.Items.Add($"{book.Id} | {book.Title} - {book.Author.FirstName} {book.Author.LastName} - {Math.Round(book.Price, 2)} euro (кол: {book.Quantity})");
             }
         }
 
@@ -314,6 +314,11 @@ namespace Forma
         private async void button6_Click(object sender, EventArgs e)
         {
             await RefreshDeleteListBoxAsync();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

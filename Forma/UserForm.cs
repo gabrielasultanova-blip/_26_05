@@ -140,27 +140,32 @@ namespace Forma
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            listBox2.Items.Clear(); 
-            listBox3.Items.Clear(); 
+            listBox2.Items.Clear();
+            listBox3.Items.Clear();
 
-                var adminList = await controller.GetAllAdminsAsync();
-                foreach (var admin in adminList)
-                {
-                    listBox2.Items.Add($"ID: {admin.Id} | Админ: {admin.Username} ({admin.Email})");
-                }
+            var adminList = await controller.GetAllAdminsAsync();
+            foreach (var admin in adminList)
+            {
+                listBox2.Items.Add($"ID: {admin.Id} | Админ: {admin.Username} ({admin.Email})");
+            }
 
-                var userList = await controller.GetAllUsersAsync();
-                foreach (var user in userList)
-                {
-                    listBox3.Items.Add($"ID: {user.Id} | Потребител: {user.Username} ({user.Email})");
-                }
+            var userList = await controller.GetAllUsersAsync();
+            foreach (var user in userList)
+            {
+                listBox3.Items.Add($"ID: {user.Id} | Потребител: {user.Username} ({user.Email})");
+            }
 
-                if (adminList.Count == 0 && userList.Count == 0)
-                {
-                    MessageBox.Show("Няма регистрирани потребители в системата.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            if (adminList.Count == 0 && userList.Count == 0)
+            {
+                MessageBox.Show("Няма регистрирани потребители в системата.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
 
         }
+
+        private async void button6_Click(object sender, EventArgs e)
+        {
+           await controller.GetAllAsync();
+        }
     }
-    
+
 }

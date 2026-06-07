@@ -11,8 +11,16 @@ namespace Controller.Business
 {
     public class AuthorController
     {
-        public OnlineShop_Db context = new OnlineShop_Db();
+        private OnlineShop_Db context { get; set; }
 
+        public AuthorController()
+        {
+            context = new OnlineShop_Db();
+        }
+        public AuthorController(OnlineShop_Db context_1)
+        {
+            context = context_1;
+        }
         public async Task AddAsync(Author author)
         {
             await context.Authors.AddAsync(author);
