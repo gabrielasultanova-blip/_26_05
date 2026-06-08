@@ -81,23 +81,23 @@ namespace Forma
 
             if (selectedIndex == null)
             {
-                MessageBox.Show("Моля, изберете продукт от количката, който да премахнете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете продукт от количката, който да премахнете!");
                 return;
             }
             ShoppingCart.Items.RemoveAt(selectedIndex);
             LoadCartItems();
-            MessageBox.Show("Продуктът беше премахнат от количката.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Продуктът беше премахнат от количката.");
         }
 
         private async void button4_Click(object sender, EventArgs e)
         {
             if (ShoppingCart.Items.Count == 0)
             {
-                MessageBox.Show("Количката ви е празна! Отидете в меню 'Разгледай', за да добавите книги.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Количката ви е празна! Отидете в меню 'Разгледай', за да добавите книги.");
                 return;
             }
 
-            var confirmResult = MessageBox.Show("Сигурни ли сте, че искате да завършите поръчката?", "Потвърждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var confirmResult = MessageBox.Show("Сигурни ли сте, че искате да завършите поръчката?");
             if (confirmResult != DialogResult.Yes) return;
 
             Order newOrder = new Order
@@ -115,7 +115,7 @@ namespace Forma
 
                 if (dbBook == null || dbBook.Quantity < cartItem.Quantity)
                 {
-                    MessageBox.Show($"Грешка: Книгата вече не е налична в исканото количество! Поръчката е прекратена.", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Грешка: Книгата вече не е налична в исканото количество! Поръчката е прекратена.");
                     return;
                 }
 
@@ -141,7 +141,7 @@ namespace Forma
             LoadCartItems();
             await LoadUserOrdersAsync();
 
-            MessageBox.Show("Поръчката Ви е изпратена успешно за обработка!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Поръчката Ви е изпратена успешно за обработка!");
 
         }
 
@@ -149,7 +149,7 @@ namespace Forma
         {
             if (ShoppingCart.Items == null || ShoppingCart.Items.Count == 0)
             {
-                MessageBox.Show("Количката ви е празна!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Количката ви е празна!");
                 return;
             }
 

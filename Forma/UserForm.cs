@@ -47,7 +47,7 @@ namespace Forma
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Моля, въведете ID на потребител!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете ID на потребител!");
                 return;
             }
 
@@ -58,20 +58,20 @@ namespace Forma
 
             if (userToPromote == null)
             {
-                MessageBox.Show("Не е намерен потребител с такова ID!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не е намерен потребител с такова ID!");
                 return;
             }
 
             if (userToPromote.Role == Role.Admin)
             {
-                MessageBox.Show("Този потребител вече е Администратор!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Този потребител вече е Администратор!");
                 return;
             }
 
             userToPromote.Role = Role.Admin;
             await controller.UpdateAsync(userId, userToPromote);
 
-            MessageBox.Show($"Потребител {userToPromote.Username} вече е Администратор!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Потребител {userToPromote.Username} вече е Администратор!");
 
             textBox1.Clear();
             await RefreshDeleteListBoxAsync();
@@ -82,7 +82,7 @@ namespace Forma
         {
             if (listBox4.SelectedItem == null)
             {
-                MessageBox.Show("Моля, изберете потребител от списъка, когото искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете потребител от списъка, когото искате да изтриете!");
                 return;
             }
 
@@ -98,10 +98,7 @@ namespace Forma
                 DialogResult cascadeResult = MessageBox.Show(
                     $"Внимание! Потребителят '{userToCheck.Username}' има {userToCheck.Orders.Count} направени поръчки.\n" +
                     "Ако го изтриете, всички негови поръчки и хронология също ще бъдат изтрити от базата данни каскадно!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?",
-                    "Критично предупреждение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                    "Сигурни ли сте, че искате да продължите?");
 
                 if (cascadeResult == DialogResult.No)
                 {
@@ -112,15 +109,13 @@ namespace Forma
             {
                 DialogResult result = MessageBox.Show(
                     $"Наистина ли искате да изтриете потребител с ID {userId}?",
-                    "Потвърждение за изтриване",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                    "Потвърждение за изтриване";
 
                 if (result == DialogResult.No) return;
             }
 
             await controller.DeleteAsync(userId);
-            MessageBox.Show("Потребителят беше изтрит успешно от системата!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Потребителят беше изтрит успешно от системата!");
             await RefreshDeleteListBoxAsync();
 
 
@@ -151,7 +146,7 @@ namespace Forma
 
             if (adminList.Count == 0 && userList.Count == 0)
             {
-                MessageBox.Show("Няма регистрирани потребители в системата.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Няма регистрирани потребители в системата.");
             }
 
         }

@@ -63,20 +63,20 @@ namespace Forma
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text) || string.IsNullOrWhiteSpace(textBox4.Text))
             {
-                MessageBox.Show("Всички полета (Име, Фамилия, Националност) са задължителни!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Всички полета (Име, Фамилия, Националност) са задължителни!");
                 return;
             }
 
             if (textBox1.Text.Length > 50 || textBox2.Text.Length > 50 || textBox4.Text.Length > 50)
             {
-                MessageBox.Show("Полетата не могат да съдържат повече от 50 символа!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Полетата не могат да съдържат повече от 50 символа!");
                 return;
             }
 
             int age = int.Parse(textBox3.Text);
             if (age < 18 || age > 120)
             {
-                MessageBox.Show("Въведете валидна възраст за автора между 18 and 120 години!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Въведете валидна възраст за автора между 18 and 120 години!");
                 return;
             }
 
@@ -90,7 +90,7 @@ namespace Forma
 
             await controller.AddAsync(newAuthor);
 
-            MessageBox.Show("Авторът беше добавен успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Авторът беше добавен успешно!");
             ClearTexBoxes();
             await RefreshDeleteListAsync();
         }
@@ -100,7 +100,7 @@ namespace Forma
             int authorId = int.Parse(textBox5.Text);
             if (authorId <= 0)
             {
-                MessageBox.Show("Моля, въведете валидно ID на автор за редакция!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидно ID на автор за редакция!");
                 return;
             }
 
@@ -109,26 +109,26 @@ namespace Forma
 
             if (existingAuthor == null)
             {
-                MessageBox.Show("Не е намерен автор с такова ID!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Не е намерен автор с такова ID!");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(textBox6.Text) || string.IsNullOrWhiteSpace(textBox7.Text) || string.IsNullOrWhiteSpace(textBox9.Text))
             {
-                MessageBox.Show("Полетата не могат да бъдат празни!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Полетата не могат да бъдат празни!");
                 return;
             }
 
             if (textBox6.Text.Length > 50 || textBox7.Text.Length > 50 || textBox9.Text.Length > 50)
             {
-                MessageBox.Show("Полетата не могат да съдържат повече от 50 символа!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Полетата не могат да съдържат повече от 50 символа!");
                 return;
             }
 
             int age = int.Parse(textBox8.Text);
             if (age < 18 || age > 120)
             {
-                MessageBox.Show("Възрастта трябва да бъде цяло число между 18 и 120!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Възрастта трябва да бъде цяло число между 18 и 120!");
                 return;
             }
 
@@ -142,7 +142,7 @@ namespace Forma
 
             await controller.UpdateAsync(authorId, updatedAuthor);
 
-            MessageBox.Show("Авторът беше редактиран успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Авторът беше редактиран успешно!");
             ClearTexBoxes();
             await RefreshDeleteListAsync();
         }
@@ -161,7 +161,7 @@ namespace Forma
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show("Моля, изберете автор от списъка, когото искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете автор от списъка, когото искате да изтриете!");
                 return;
             }
 
@@ -177,10 +177,7 @@ namespace Forma
                 DialogResult cascadeResult = MessageBox.Show(
                     $"Внимание! Авторът '{authorToCheck.FirstName} {authorToCheck.LastName}' има {authorToCheck.Books.Count} регистрирани книги.\n" +
                     "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от магазина!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?",
-                    "Критично предупреждение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                    "Сигурни ли сте, че искате да продължите?");
 
                 if (cascadeResult == DialogResult.No)
                 {
@@ -190,16 +187,13 @@ namespace Forma
             else
             {
                 DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете автора с ID {authorId}?",
-                    "Потвърждение за изтриване",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                    $"Наистина ли искате да изтриете автора с ID {authorId}?");
 
                 if (result == DialogResult.No) return;
             }
 
             await controller.DeleteAsync(authorId);
-            MessageBox.Show("Авторът беше изтрит успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Авторът беше изтрит успешно!", "Успех");
             await RefreshDeleteListAsync();
         }
 

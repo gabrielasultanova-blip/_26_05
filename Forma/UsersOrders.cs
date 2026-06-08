@@ -40,7 +40,7 @@ namespace Forma
 
             if (orders.Count == 0)
             {
-                MessageBox.Show("Няма намерени поръчки в системата.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Няма намерени поръчки в системата.");
             }
         }
 
@@ -73,7 +73,7 @@ namespace Forma
 
             if (startDate > endDate)
             {
-                MessageBox.Show("Началната дата не може да бъде след крайната дата!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Началната дата не може да бъде след крайната дата!");
                 return;
             }
 
@@ -86,7 +86,7 @@ namespace Forma
 
             if (filteredOrders.Count == 0)
             {
-                MessageBox.Show("Няма намерени поръчки в този времеви диапазон.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Няма намерени поръчки в този времеви диапазон.");
             }
 
         }
@@ -97,7 +97,7 @@ namespace Forma
 
             if (string.IsNullOrWhiteSpace(textBox1.Text))
             {
-                MessageBox.Show("Моля, въведете ID на поръчка в текстовото поле!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете ID на поръчка в текстовото поле!");
                 return;
             }
 
@@ -107,7 +107,7 @@ namespace Forma
 
             if (order == null)
             {
-                MessageBox.Show($"Не е намерена поръчка с ID: {orderId}!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Не е намерена поръчка с ID: {orderId}!");
                 return;
             }
 
@@ -151,7 +151,7 @@ namespace Forma
         {
             if (string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Моля, въведете ID на поръчка!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете ID на поръчка!");
                 return;
             }
 
@@ -178,7 +178,7 @@ namespace Forma
 
             await controller.UpdateOrderStatus(orderId, newStatus);
 
-            MessageBox.Show($"Статусът на поръчка №{orderId} беше сменен на {newStatus}!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Статусът на поръчка: {orderId}. беше сменен на {newStatus}!");
         }
 
         private void label5_Click(object sender, EventArgs e)

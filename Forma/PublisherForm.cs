@@ -67,19 +67,19 @@ namespace Forma
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Името на издателството и Държавата са задължителни полета!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Името на издателството и Държавата са задължителни полета!");
                 return;
             }
 
             if (textBox1.Text.Length > 100)
             {
-                MessageBox.Show("Името на издателството не може да бъде по-дълго от 100 символа!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Името на издателството не може да бъде по-дълго от 100 символа!");
                 return;
             }
 
             if (textBox2.Text.Length > 50)
             {
-                MessageBox.Show("Името на държавата не може да бъде по-дълго от 50 символа!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Името на държавата не може да бъде по-дълго от 50 символа!");
                 return;
             }
 
@@ -91,7 +91,7 @@ namespace Forma
 
             await controller.AddAsync(newPublisher);
 
-            MessageBox.Show("Издателството беше добавено успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Издателството беше добавено успешно!");
             ClearTexBoxes();
             await RefreshDeleteListBoxAsync();
         }
@@ -101,7 +101,7 @@ namespace Forma
             int publisherId = int.Parse(textBox3.Text);
             if (publisherId <= 0)
             {
-                MessageBox.Show("Моля, въведете валидно ID на издателство за редакция!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидно ID на издателство за редакция!");
                 return;
             }
 
@@ -110,19 +110,19 @@ namespace Forma
 
             if (existingPublisher == null)
             {
-                MessageBox.Show("Не е намерено издателство с такова ID!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Не е намерено издателство с такова ID!", "Грешка");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(textBox4.Text) || string.IsNullOrWhiteSpace(textBox5.Text))
             {
-                MessageBox.Show("Новото име и държава не могат да бъдат празни!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Новото име и държава не могат да бъдат празни!");
                 return;
             }
 
             if (textBox4.Text.Length > 100 || textBox5.Text.Length > 50)
             {
-                MessageBox.Show("Моля, съобразете се с ограниченията за дължина (Име до 100 симв., Държава до 50 симв.)!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, съобразете се с ограниченията за дължина (Име до 100 симв., Държава до 50 симв.)!");
                 return;
             }
 
@@ -134,7 +134,7 @@ namespace Forma
 
             await controller.UpdateAsync(publisherId, updatedPublisher);
 
-            MessageBox.Show("Издателството беше редактирано успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Издателството беше редактирано успешно!");
             ClearTexBoxes();
             await RefreshDeleteListBoxAsync();
         }
@@ -143,7 +143,7 @@ namespace Forma
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show("Моля, изберете издателство от списъка, което искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете издателство от списъка, което искате да изтриете!");
                 return;
             }
 
@@ -159,10 +159,7 @@ namespace Forma
                 DialogResult cascadeResult = MessageBox.Show(
                     $"Внимание! Издателство '{publisherToCheck.Name}' има {publisherToCheck.Books.Count} регистрирани книги.\n" +
                     "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от базата данни!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?",
-                    "Критично предупреждение (Каскадно триене)",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Warning);
+                    "Сигурни ли сте, че искате да продължите?");
 
                 if (cascadeResult == DialogResult.No)
                 {
@@ -172,16 +169,13 @@ namespace Forma
             else
             {
                 DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете издателството с ID {publisherId}?",
-                    "Потвърждение за изтриване",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question);
+                    $"Наистина ли искате да изтриете издателството с ID {publisherId}?");
 
                 if (result == DialogResult.No) return;
             }
 
             await controller.DeleteAsync(publisherId);
-            MessageBox.Show("Издателството беше изтрито успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Издателството беше изтрито успешно!");
             await RefreshDeleteListBoxAsync();
 
         }

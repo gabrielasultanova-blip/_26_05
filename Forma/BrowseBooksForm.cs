@@ -78,21 +78,21 @@ namespace Forma
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show("Моля, изберете книга от списъка!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете книга от списъка!");
                 return;
             }
 
             Book selectedBook = (Book)listBox1.SelectedItem;
             if (!selectedBook.InStock || selectedBook.Quantity <= 0)
             {
-                MessageBox.Show("Съжаляваме, тази книга в момента не е в наличност!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Съжаляваме, тази книга в момента не е в наличност!");
                 return;
             }
 
             int inputQuantity = (int)numericUpDown1.Value;
             if (inputQuantity > selectedBook.Quantity)
             {
-                MessageBox.Show($"Няма достатъчно наличност! Максимално количество в склада: {selectedBook.Quantity} бр.", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Няма достатъчно наличност! Максимално количество в склада: {selectedBook.Quantity} бр.");
                 return;
             }
 
@@ -101,7 +101,7 @@ namespace Forma
             {
                 if (existingItem.Quantity + inputQuantity > selectedBook.Quantity)
                 {
-                    MessageBox.Show("Общото количество в количката надвишава наличността на книгата!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Общото количество в количката надвишава наличността на книгата!");
                     return;
                 }
                 existingItem.Quantity += inputQuantity;
@@ -116,7 +116,7 @@ namespace Forma
                 });
             }
 
-            MessageBox.Show($"Книгата '{selectedBook.Title}' беше добавена в количката!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show($"Книгата '{selectedBook.Title}' беше добавена в количката!");
             numericUpDown1.Value = 1;
             await RefreshListAsync();
         }
@@ -236,7 +236,7 @@ namespace Forma
             {
                 if (string.IsNullOrWhiteSpace(textBox1.Text))
                 {
-                    MessageBox.Show("Моля, въведете текст за търсене!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Моля, въведете текст за търсене!");
                     return;
                 }
             }
@@ -269,7 +269,7 @@ namespace Forma
 
                 if (min > max)
                 {
-                    MessageBox.Show("Минималната цена не може да бъде по-голяма от максималната!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Минималната цена не може да бъде по-голяма от максималната!");
                     return;
                 }
 
@@ -281,7 +281,7 @@ namespace Forma
             }
             if (displayedBooks == null || displayedBooks.Count == 0)
             {
-                MessageBox.Show("Няма намерени книги по избраните критерии!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Няма намерени книги по избраните критерии!");
                 displayedBooks = await bookController.GetAllAsync();
             }
 

@@ -104,34 +104,34 @@ namespace Forma
         {
             if (string.IsNullOrWhiteSpace(textBox1.Text) || string.IsNullOrWhiteSpace(textBox2.Text))
             {
-                MessageBox.Show("Заглавието и Жанрът са задължителни полета!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Заглавието и Жанрът са задължителни полета!");
                 return;
             }
 
             decimal price = decimal.Parse(textBox3.Text);
             if (price < 0.01m || price > 1000m || price == null)
             {
-                MessageBox.Show("Моля, въведете валидна цена между 0.01 и 1000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидна цена между 0.01 и 1000!");
                 return;
             }
 
             int pages = int.Parse(textBox4.Text);
             if (pages < 1 || pages > 10000 || pages == null)
             {
-                MessageBox.Show("Страниците трябва да бъдат цяло число между 1 и 10 000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Страниците трябва да бъдат цяло число между 1 и 10 000!");
                 return;
             }
 
             int quantity = int.Parse(textBox5.Text);
             if (quantity < 0 || quantity > 1000 || quantity == null)
             {
-                MessageBox.Show("Количеството трябва да бъде между 0 и 1000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Количеството трябва да бъде между 0 и 1000!");
                 return;
             }
 
             if (comboBox1.SelectedValue == null || comboBox2.SelectedValue == null)
             {
-                MessageBox.Show("Моля, изберете валиден Автор и Издател от списъците!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете валиден Автор и Издател от списъците!");
                 return;
             }
 
@@ -141,7 +141,7 @@ namespace Forma
             DateOnly publishedOn = DateOnly.Parse(textBox7.Text);
             if (publishedOn == null)
             {
-                MessageBox.Show("Моля, въведете валидна дата в формат (ГГГГ-ММ-ДД)!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидна дата в формат (ГГГГ-ММ-ДД)!");
                 return;
             }
 
@@ -172,48 +172,48 @@ namespace Forma
             int bookId = int.Parse(textBox6.Text);
             if (bookId <= 0)
             {
-                MessageBox.Show("Моля, въведете валидно ID на книга за редакция!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидно ID на книга за редакция!");
                 return;
             }
 
             var existingBook = controller.GetByIdAsync(bookId);
             if (existingBook == null)
             {
-                MessageBox.Show("Не е намерена книга с такова ID!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Не е намерена книга с такова ID!");
                 return;
             }
 
             if (string.IsNullOrWhiteSpace(textBox10.Text) || string.IsNullOrWhiteSpace(textBox11.Text))
             {
-                MessageBox.Show("Полетата Заглавие и Жанр не могат да бъдат празни!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Полетата Заглавие и Жанр не могат да бъдат празни!");
                 return;
             }
 
             decimal price = decimal.Parse(textBox12.Text);
             if (price < 0.01m || price > 1000m || price == null)
             {
-                MessageBox.Show("Моля, въведете валидна цена между 0.01 и 1000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, въведете валидна цена между 0.01 и 1000!");
                 return;
             }
 
             int pages = int.Parse(textBox13.Text);
             if (pages < 1 || pages > 10000 || pages == null)
             {
-                MessageBox.Show("Страниците трябва да бъдат цяло число между 1 и 10 000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Страниците трябва да бъдат цяло число между 1 и 10 000!");
                 return;
             }
 
             int quantity = int.Parse(textBox14.Text);
             if (quantity < 0 || quantity > 1000 || quantity == null)
             {
-                MessageBox.Show("Количеството трябва да бъде между 0 и 1000!", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Количеството трябва да бъде между 0 и 1000!");
                 return;
             }
 
             bool inStock = quantity > 0;
             if (quantity == 0)
             {
-                MessageBox.Show("Книгата не може да бъде маркирана 'В наличност', ако количеството ѝ е 0. Автоматично ще бъде коригирана.", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Книгата не може да бъде маркирана 'В наличност', ако количеството ѝ е 0. Автоматично ще бъде коригирана.");
                 inStock = false;
             }
 
@@ -244,7 +244,7 @@ namespace Forma
         {
             if (listBox1.SelectedItem == null)
             {
-                MessageBox.Show("Моля, изберете книга от списъка, която искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Моля, изберете книга от списъка, която искате да изтриете!");
                 return;
             }
 
@@ -255,29 +255,19 @@ namespace Forma
             var bookToCheck = await controller.GetByIdAsync(bookId);
             if (bookToCheck != null && bookToCheck.OrderItems != null && bookToCheck.OrderItems.Count > 0)
             {
-                MessageBox.Show($"Книгата '{bookToCheck.Title}' не може да бъде изтрита, защото участва в {bookToCheck.OrderItems.Count} направени поръчки!",
-                                "Забранено изтриване", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show($"Книгата '{bookToCheck.Title}' не може да бъде изтрита, защото участва в {bookToCheck.OrderItems.Count} направени поръчки!");
                 return;
             }
 
             DialogResult result = MessageBox.Show(
-                $"Наистина ли искате да изтриете книгата с ID {bookId}?",
-                "Потвърждение за изтриване",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+                $"Наистина ли искате да изтриете книгата с ID {bookId}?");
 
             if (result == DialogResult.Yes)
             {
-                try
-                {
+ 
                     await controller.DeleteAsync(bookId);
-                    MessageBox.Show("Книгата беше изтрита успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Книгата беше изтрита успешно!");
                     await RefreshDeleteListBoxAsync();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Грешка при изтриване: {ex.Message}", "Грешка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             await RefreshDeleteListBoxAsync();
             await LoadComboBoxDataAsync();
@@ -302,7 +292,7 @@ namespace Forma
 
             if (inStockBooks.Count == 0 && notInStockBooks.Count == 0)
             {
-                MessageBox.Show("Няма регистрирани книги в базата данни.", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Няма регистрирани книги в базата данни.");
             }
         }
 
