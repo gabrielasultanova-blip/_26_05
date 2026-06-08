@@ -35,13 +35,7 @@ namespace Forma
 
         private async Task RefreshDeleteListBoxAsync()
         {
-            listBox1.Items.Clear();
-            var users = await controller.GetAllAsync();
 
-            foreach (var user in users)
-            {
-                listBox1.Items.Add($"{user.Id} | Потребител: {user.Username} | Имеил: {user.Email} | Роля: {user.Role}");
-            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -86,13 +80,13 @@ namespace Forma
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedItem == null)
+            if (listBox4.SelectedItem == null)
             {
                 MessageBox.Show("Моля, изберете потребител от списъка, когото искате да изтриете!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            string selectedItemText = listBox1.SelectedItem.ToString();
+            string selectedItemText = listBox4.SelectedItem.ToString();
             string idPart = selectedItemText.Split('|')[0].Trim();
             int userId = int.Parse(idPart);
 
@@ -164,7 +158,17 @@ namespace Forma
 
         private async void button6_Click(object sender, EventArgs e)
         {
-           await controller.GetAllAsync();
+            await controller.GetAllAsync();
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

@@ -43,13 +43,29 @@ namespace Forma
             }
             else
             {
-                ClientForm clientForm = new ClientForm();
+                ClientForm clientForm = new ClientForm(); 
+                clientForm.LoggedUser = user;
                 clientForm.Show();
             }
 
             textBox1.Clear();
             textBox2.Clear();
             this.Hide();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

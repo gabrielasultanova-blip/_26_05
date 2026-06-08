@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientForm));
             label1 = new Label();
             button1 = new Button();
             button2 = new Button();
@@ -37,8 +38,10 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
             label1.Font = new Font("Times New Roman", 16.2F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label1.Location = new Point(420, 96);
+            label1.ForeColor = Color.FromArgb(245, 235, 224);
+            label1.Location = new Point(418, 148);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(220, 32);
@@ -47,45 +50,53 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(245, 235, 224);
             button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button1.Location = new Point(264, 263);
+            button1.ForeColor = Color.FromArgb(67, 40, 24);
+            button1.Location = new Point(269, 244);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(190, 44);
             button1.TabIndex = 1;
             button1.Text = "Разгледай книги";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.FromArgb(245, 235, 224);
             button2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button2.Location = new Point(570, 263);
+            button2.ForeColor = Color.FromArgb(67, 40, 24);
+            button2.Location = new Point(550, 244);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(190, 44);
             button2.TabIndex = 2;
             button2.Text = "Моите поръчки";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // button3
             // 
+            button3.BackColor = Color.FromArgb(67, 40, 24);
             button3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button3.Location = new Point(885, 459);
+            button3.ForeColor = Color.FromArgb(245, 235, 224);
+            button3.Location = new Point(793, 459);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(202, 47);
             button3.TabIndex = 3;
             button3.Text = "Начално меню";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click_1;
             // 
             // ClientForm
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1100, 518);
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(1008, 518);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(button1);

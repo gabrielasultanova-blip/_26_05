@@ -193,7 +193,7 @@ namespace Forma
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -205,6 +205,11 @@ namespace Forma
         private async void button6_Click_1(object sender, EventArgs e)
         {
             await RefreshDeleteListBoxAsync();
+        }
+
+        private void PublisherForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorsForm));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
             textBox4 = new TextBox();
@@ -69,15 +70,16 @@
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage4);
             tabControl1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            tabControl1.Location = new Point(51, 37);
+            tabControl1.Location = new Point(34, 27);
             tabControl1.Margin = new Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1074, 452);
+            tabControl1.Size = new Size(1099, 474);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            tabPage1.BackgroundImage = (Image)resources.GetObject("tabPage1.BackgroundImage");
             tabPage1.Controls.Add(textBox4);
             tabPage1.Controls.Add(textBox3);
             tabPage1.Controls.Add(textBox2);
@@ -91,62 +93,73 @@
             tabPage1.Margin = new Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(4, 3, 4, 3);
-            tabPage1.Size = new Size(1066, 413);
+            tabPage1.Size = new Size(1091, 435);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Добави Автор";
             tabPage1.UseVisualStyleBackColor = true;
             // 
             // textBox4
             // 
+            textBox4.BackColor = Color.FromArgb(245, 241, 234);
             textBox4.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox4.Location = new Point(257, 220);
+            textBox4.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox4.Location = new Point(256, 243);
             textBox4.Margin = new Padding(4, 3, 4, 3);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(170, 30);
+            textBox4.Size = new Size(222, 30);
             textBox4.TabIndex = 8;
             // 
             // textBox3
             // 
+            textBox3.BackColor = Color.FromArgb(245, 241, 234);
             textBox3.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox3.Location = new Point(168, 158);
+            textBox3.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox3.Location = new Point(168, 186);
             textBox3.Margin = new Padding(4, 3, 4, 3);
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(189, 30);
+            textBox3.Size = new Size(129, 30);
             textBox3.TabIndex = 7;
             // 
             // textBox2
             // 
+            textBox2.BackColor = Color.FromArgb(245, 241, 234);
             textBox2.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox2.Location = new Point(192, 96);
+            textBox2.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox2.Location = new Point(177, 134);
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(202, 30);
+            textBox2.Size = new Size(274, 30);
             textBox2.TabIndex = 6;
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(245, 241, 234);
             textBox1.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox1.Location = new Point(146, 40);
+            textBox1.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox1.Location = new Point(123, 86);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(211, 30);
+            textBox1.Size = new Size(249, 30);
             textBox1.TabIndex = 5;
             // 
             // button2
             // 
-            button2.Location = new Point(192, 314);
+            button2.BackColor = Color.FromArgb(245, 241, 234);
+            button2.ForeColor = Color.FromArgb(47, 43, 40);
+            button2.Location = new Point(168, 318);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(129, 54);
             button2.TabIndex = 4;
             button2.Text = "Добави";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(51, 220);
+            label4.ForeColor = Color.FromArgb(245, 241, 234);
+            label4.Location = new Point(51, 243);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(178, 26);
@@ -156,7 +169,8 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(51, 158);
+            label3.ForeColor = Color.FromArgb(245, 241, 234);
+            label3.Location = new Point(51, 186);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(95, 26);
@@ -166,7 +180,8 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 96);
+            label2.ForeColor = Color.FromArgb(245, 241, 234);
+            label2.Location = new Point(51, 134);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(118, 26);
@@ -176,7 +191,8 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 40);
+            label1.ForeColor = Color.FromArgb(245, 241, 234);
+            label1.Location = new Point(51, 86);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(64, 26);
@@ -185,6 +201,7 @@
             // 
             // tabPage2
             // 
+            tabPage2.BackgroundImage = (Image)resources.GetObject("tabPage2.BackgroundImage");
             tabPage2.Controls.Add(button6);
             tabPage2.Controls.Add(button4);
             tabPage2.Controls.Add(listBox1);
@@ -193,36 +210,42 @@
             tabPage2.Margin = new Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new Padding(4, 3, 4, 3);
-            tabPage2.Size = new Size(1066, 413);
+            tabPage2.Size = new Size(1091, 435);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Изтрий Автор";
             tabPage2.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            button6.Location = new Point(722, 259);
+            button6.BackColor = Color.FromArgb(245, 241, 234);
+            button6.ForeColor = Color.FromArgb(47, 43, 40);
+            button6.Location = new Point(702, 259);
             button6.Margin = new Padding(4, 3, 4, 3);
             button6.Name = "button6";
             button6.Size = new Size(129, 45);
             button6.TabIndex = 3;
             button6.Text = "Покажи";
-            button6.UseVisualStyleBackColor = true;
+            button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click_1;
             // 
             // button4
             // 
-            button4.Location = new Point(722, 320);
+            button4.BackColor = Color.FromArgb(47, 43, 40);
+            button4.ForeColor = Color.FromArgb(245, 241, 234);
+            button4.Location = new Point(702, 310);
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(129, 45);
             button4.TabIndex = 2;
             button4.Text = "Изтрий";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
             // 
             // listBox1
             // 
+            listBox1.BackColor = Color.FromArgb(245, 241, 234);
             listBox1.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            listBox1.ForeColor = Color.FromArgb(47, 43, 40);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 23;
             listBox1.Location = new Point(26, 62);
@@ -234,6 +257,7 @@
             // label10
             // 
             label10.AutoSize = true;
+            label10.ForeColor = Color.FromArgb(245, 241, 234);
             label10.Location = new Point(26, 25);
             label10.Margin = new Padding(4, 0, 4, 0);
             label10.Name = "label10";
@@ -243,6 +267,7 @@
             // 
             // tabPage4
             // 
+            tabPage4.BackgroundImage = (Image)resources.GetObject("tabPage4.BackgroundImage");
             tabPage4.Controls.Add(button3);
             tabPage4.Controls.Add(textBox9);
             tabPage4.Controls.Add(textBox8);
@@ -258,35 +283,41 @@
             tabPage4.Margin = new Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(4, 3, 4, 3);
-            tabPage4.Size = new Size(1066, 413);
+            tabPage4.Size = new Size(1091, 435);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Промени";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
-            button3.Location = new Point(822, 337);
+            button3.BackColor = Color.FromArgb(245, 241, 234);
+            button3.ForeColor = Color.FromArgb(47, 43, 40);
+            button3.Location = new Point(138, 346);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
-            button3.Size = new Size(129, 33);
+            button3.Size = new Size(129, 44);
             button3.TabIndex = 10;
             button3.Text = "Промени";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // textBox9
             // 
+            textBox9.BackColor = Color.FromArgb(245, 241, 234);
             textBox9.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox9.Location = new Point(246, 287);
+            textBox9.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox9.Location = new Point(228, 275);
             textBox9.Margin = new Padding(4, 3, 4, 3);
             textBox9.Name = "textBox9";
-            textBox9.Size = new Size(184, 30);
+            textBox9.Size = new Size(204, 30);
             textBox9.TabIndex = 9;
             // 
             // textBox8
             // 
+            textBox8.BackColor = Color.FromArgb(245, 241, 234);
             textBox8.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox8.Location = new Point(163, 227);
+            textBox8.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox8.Location = new Point(158, 220);
             textBox8.Margin = new Padding(4, 3, 4, 3);
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(109, 30);
@@ -294,26 +325,33 @@
             // 
             // textBox7
             // 
+            textBox7.BackColor = Color.FromArgb(245, 241, 234);
             textBox7.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox7.Location = new Point(178, 165);
+            textBox7.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox7.Location = new Point(173, 164);
             textBox7.Margin = new Padding(4, 3, 4, 3);
             textBox7.Name = "textBox7";
-            textBox7.Size = new Size(218, 30);
+            textBox7.Size = new Size(239, 30);
             textBox7.TabIndex = 7;
+            textBox7.TextChanged += textBox7_TextChanged;
             // 
             // textBox6
             // 
+            textBox6.BackColor = Color.FromArgb(245, 241, 234);
             textBox6.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox6.Location = new Point(130, 100);
+            textBox6.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox6.Location = new Point(128, 109);
             textBox6.Margin = new Padding(4, 3, 4, 3);
             textBox6.Name = "textBox6";
-            textBox6.Size = new Size(213, 30);
+            textBox6.Size = new Size(233, 30);
             textBox6.TabIndex = 6;
             // 
             // textBox5
             // 
+            textBox5.BackColor = Color.FromArgb(245, 241, 234);
             textBox5.Font = new Font("Times New Roman", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            textBox5.Location = new Point(189, 43);
+            textBox5.ForeColor = Color.FromArgb(47, 43, 40);
+            textBox5.Location = new Point(173, 59);
             textBox5.Margin = new Padding(4, 3, 4, 3);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(110, 30);
@@ -322,7 +360,8 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(46, 287);
+            label9.ForeColor = Color.FromArgb(245, 241, 234);
+            label9.Location = new Point(46, 275);
             label9.Margin = new Padding(4, 0, 4, 0);
             label9.Name = "label9";
             label9.Size = new Size(165, 26);
@@ -332,7 +371,8 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(46, 227);
+            label8.ForeColor = Color.FromArgb(245, 241, 234);
+            label8.Location = new Point(46, 220);
             label8.Margin = new Padding(4, 0, 4, 0);
             label8.Name = "label8";
             label8.Size = new Size(95, 26);
@@ -342,7 +382,8 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(46, 165);
+            label7.ForeColor = Color.FromArgb(245, 241, 234);
+            label7.Location = new Point(46, 164);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(118, 26);
@@ -352,7 +393,8 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(46, 100);
+            label6.ForeColor = Color.FromArgb(245, 241, 234);
+            label6.Location = new Point(46, 109);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
             label6.Size = new Size(64, 26);
@@ -362,7 +404,8 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(46, 43);
+            label5.ForeColor = Color.FromArgb(245, 241, 234);
+            label5.Location = new Point(46, 59);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(119, 26);
@@ -371,20 +414,23 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(245, 241, 234);
             button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.ForeColor = Color.FromArgb(47, 43, 40);
             button1.Location = new Point(1038, 507);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(129, 54);
             button1.TabIndex = 1;
             button1.Text = "Назад";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // AuthorsForm
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(53, 34, 8);
             ClientSize = new Size(1180, 573);
             Controls.Add(button1);
             Controls.Add(tabControl1);

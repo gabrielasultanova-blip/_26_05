@@ -49,5 +49,14 @@ namespace _26_05.Entities
         public Publisher Publisher { get; set; } = null!;
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+        public override string ToString()
+        {
+            if (this.Author != null && !string.IsNullOrEmpty(this.Author.FirstName) && this.Publisher != null && !string.IsNullOrEmpty(this.Publisher.Name))
+            {
+                return $"{this.Title} - {this.Author.FirstName} {this.Author.LastName} | {this.Price} euro";
+            }
+            return $"{this.Title} | {this.Price} euro";
+        }
     }
 }

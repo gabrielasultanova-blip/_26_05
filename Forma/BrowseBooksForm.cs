@@ -19,9 +19,17 @@ namespace Forma
         User currentUser = new User();
         List<Book> displayedBooks = new List<Book>();
 
-        public BrowseBooksForm()
+        public BrowseBooksForm(User loggedUser)
         {
             InitializeComponent();
+            currentUser = loggedUser;
+
+            radioButton1.CheckedChanged += rbAuthor_CheckedChanged;
+            radioButton2.CheckedChanged += rbPublisher_CheckedChanged;
+            radioButton3.CheckedChanged += rbGenre_CheckedChanged;
+            radioButton4.CheckedChanged += rbTitle_CheckedChanged;
+            radioButton5.CheckedChanged += rbPrice_CheckedChanged;
+            radioButton6.CheckedChanged += rbInStock_CheckedChanged;
         }
 
         private async Task RefreshListAsync()
@@ -55,9 +63,10 @@ namespace Forma
         private void button8_Click(object sender, EventArgs e)
         {
             ClientForm form = new ClientForm();
+            form.LoggedUser = this.currentUser; 
 
-            form.ShowDialog();
-            this.Hide();
+            form.Show();
+            this.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -102,7 +111,7 @@ namespace Forma
                 ShoppingCart.Items.Add(new OrderItem
                 {
                     BookId = selectedBook.Id,
-                    Book = selectedBook, // Пазим референция за визуализация
+                    Book = selectedBook, 
                     Quantity = inputQuantity
                 });
             }
@@ -170,6 +179,7 @@ namespace Forma
             {
                 HideAllFilterControls();
                 label1.Text = "Ценови диапазон:";
+                label1.Visible = true;
                 button1.Visible = true;
                 textBox2.Visible = true;
                 textBox3.Visible = true;
@@ -222,10 +232,13 @@ namespace Forma
 
         private async void button1_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if (radioButton1.Checked || radioButton2.Checked || radioButton3.Checked || radioButton4.Checked)
             {
-                MessageBox.Show("Моля, въведете текст за търсене!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                if (string.IsNullOrWhiteSpace(textBox1.Text))
+                {
+                    MessageBox.Show("Моля, въведете текст за търсене!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
             }
 
             string input = textBox1.Text.Trim();

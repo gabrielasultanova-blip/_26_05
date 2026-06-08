@@ -149,7 +149,7 @@ namespace Forma
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private async void btnRefreshDeleteList_Click(object sender, EventArgs e)
@@ -211,6 +211,11 @@ namespace Forma
         private async void button6_Click_1(object sender, EventArgs e)
         {
             await RefreshDeleteListAsync();
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

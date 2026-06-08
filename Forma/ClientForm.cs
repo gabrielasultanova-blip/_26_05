@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _26_05.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,7 @@ namespace Forma
 {
     public partial class ClientForm : Form
     {
+        public User LoggedUser { get; set; }
         public ClientForm()
         {
             InitializeComponent();
@@ -19,18 +21,18 @@ namespace Forma
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OrderForm form = new OrderForm();
+            OrderForm orderForm = new OrderForm(this.LoggedUser);
 
-            form.ShowDialog();
+            orderForm.Show();
             this.Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BrowseBooksForm form = new BrowseBooksForm();
+            BrowseBooksForm browseForm = new BrowseBooksForm(this.LoggedUser);
 
-            form.ShowDialog();
             this.Hide();
+            browseForm.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -43,7 +45,7 @@ namespace Forma
             Form1 form = new Form1();
 
             form.ShowDialog();
-            this.Hide();
+            this.Close();
         }
     }
 }

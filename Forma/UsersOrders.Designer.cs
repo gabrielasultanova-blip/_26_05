@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersOrders));
             tabControl1 = new TabControl();
             tabPage1 = new TabPage();
+            label4 = new Label();
             listBox1 = new ListBox();
             label1 = new Label();
             dateTimePicker2 = new DateTimePicker();
@@ -51,7 +53,6 @@
             textBox2 = new TextBox();
             label3 = new Label();
             button4 = new Button();
-            label4 = new Label();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             tabPage2.SuspendLayout();
@@ -73,6 +74,7 @@
             // 
             // tabPage1
             // 
+            tabPage1.BackgroundImage = (Image)resources.GetObject("tabPage1.BackgroundImage");
             tabPage1.Controls.Add(label4);
             tabPage1.Controls.Add(listBox1);
             tabPage1.Controls.Add(label1);
@@ -89,8 +91,21 @@
             tabPage1.Text = "Филтрирай";
             tabPage1.UseVisualStyleBackColor = true;
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.FromArgb(245, 235, 224);
+            label4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label4.Location = new Point(24, 21);
+            label4.Name = "label4";
+            label4.Size = new Size(186, 26);
+            label4.TabIndex = 8;
+            label4.Text = "Всички поръчки:";
+            // 
             // listBox1
             // 
+            listBox1.BackColor = Color.FromArgb(245, 235, 224);
+            listBox1.ForeColor = Color.FromArgb(53, 34, 8);
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 23;
             listBox1.Location = new Point(24, 66);
@@ -102,7 +117,9 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.BackColor = Color.FromArgb(245, 235, 224);
             label1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label1.ForeColor = Color.FromArgb(53, 34, 8);
             label1.Location = new Point(104, 421);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -112,46 +129,61 @@
             // 
             // dateTimePicker2
             // 
+            dateTimePicker2.CalendarForeColor = Color.FromArgb(53, 34, 8);
+            dateTimePicker2.CalendarMonthBackground = Color.FromArgb(245, 235, 224);
+            dateTimePicker2.CalendarTitleBackColor = Color.FromArgb(245, 235, 224);
+            dateTimePicker2.CalendarTitleForeColor = Color.FromArgb(53, 34, 8);
+            dateTimePicker2.CalendarTrailingForeColor = Color.FromArgb(53, 34, 8);
             dateTimePicker2.Location = new Point(374, 453);
             dateTimePicker2.Margin = new Padding(4, 3, 4, 3);
             dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(265, 30);
+            dateTimePicker2.Size = new Size(296, 30);
             dateTimePicker2.TabIndex = 5;
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.CalendarForeColor = Color.FromArgb(53, 34, 8);
+            dateTimePicker1.CalendarMonthBackground = Color.FromArgb(245, 235, 224);
+            dateTimePicker1.CalendarTitleBackColor = Color.FromArgb(245, 235, 224);
+            dateTimePicker1.CalendarTitleForeColor = Color.FromArgb(53, 34, 8);
+            dateTimePicker1.CalendarTrailingForeColor = Color.FromArgb(53, 34, 8);
             dateTimePicker1.Location = new Point(374, 396);
             dateTimePicker1.Margin = new Padding(4, 3, 4, 3);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(265, 30);
+            dateTimePicker1.Size = new Size(296, 30);
             dateTimePicker1.TabIndex = 4;
             // 
             // button3
             // 
+            button3.BackColor = Color.FromArgb(53, 34, 8);
             button3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button3.ForeColor = Color.FromArgb(245, 235, 224);
             button3.Location = new Point(725, 444);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(129, 39);
             button3.TabIndex = 2;
             button3.Text = "По дата";
-            button3.UseVisualStyleBackColor = true;
+            button3.UseVisualStyleBackColor = false;
             button3.Click += button3_Click;
             // 
             // button2
             // 
+            button2.BackColor = Color.FromArgb(245, 235, 224);
             button2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button2.ForeColor = Color.FromArgb(53, 34, 8);
             button2.Location = new Point(725, 387);
             button2.Margin = new Padding(4, 3, 4, 3);
             button2.Name = "button2";
             button2.Size = new Size(129, 39);
             button2.TabIndex = 1;
             button2.Text = "Всички";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // tabPage2
             // 
+            tabPage2.BackgroundImage = (Image)resources.GetObject("tabPage2.BackgroundImage");
             tabPage2.Controls.Add(textBox1);
             tabPage2.Controls.Add(label2);
             tabPage2.Controls.Add(richTextBox1);
@@ -167,6 +199,8 @@
             // 
             // textBox1
             // 
+            textBox1.BackColor = Color.FromArgb(245, 235, 224);
+            textBox1.ForeColor = Color.FromArgb(53, 34, 8);
             textBox1.Location = new Point(269, 43);
             textBox1.Margin = new Padding(4, 3, 4, 3);
             textBox1.Name = "textBox1";
@@ -176,7 +210,9 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.FromArgb(245, 235, 224);
             label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.FromArgb(53, 34, 8);
             label2.Location = new Point(77, 43);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
@@ -187,6 +223,8 @@
             // 
             // richTextBox1
             // 
+            richTextBox1.BackColor = Color.FromArgb(245, 235, 224);
+            richTextBox1.ForeColor = Color.FromArgb(53, 34, 8);
             richTextBox1.Location = new Point(77, 88);
             richTextBox1.Margin = new Padding(4, 3, 4, 3);
             richTextBox1.Name = "richTextBox1";
@@ -196,20 +234,23 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.FromArgb(245, 235, 224);
             button1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button1.ForeColor = Color.FromArgb(53, 34, 8);
             button1.Location = new Point(505, 441);
             button1.Margin = new Padding(4, 3, 4, 3);
             button1.Name = "button1";
             button1.Size = new Size(236, 40);
             button1.TabIndex = 1;
             button1.Text = "Детайли на поръчка";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
             // tabPage3
             // 
-            tabPage3.Controls.Add(button5);
+            tabPage3.BackgroundImage = (Image)resources.GetObject("tabPage3.BackgroundImage");
             tabPage3.Controls.Add(groupBox1);
+            tabPage3.Controls.Add(button5);
             tabPage3.Controls.Add(textBox2);
             tabPage3.Controls.Add(label3);
             tabPage3.Location = new Point(4, 32);
@@ -223,14 +264,16 @@
             // 
             // button5
             // 
+            button5.BackColor = Color.FromArgb(245, 235, 224);
             button5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button5.Location = new Point(549, 373);
+            button5.ForeColor = Color.FromArgb(53, 34, 8);
+            button5.Location = new Point(553, 404);
             button5.Margin = new Padding(4, 3, 4, 3);
             button5.Name = "button5";
             button5.Size = new Size(129, 37);
             button5.TabIndex = 3;
             button5.Text = "Промени статус";
-            button5.UseVisualStyleBackColor = true;
+            button5.UseVisualStyleBackColor = false;
             button5.Click += button5_Click;
             // 
             // groupBox1
@@ -240,7 +283,8 @@
             groupBox1.Controls.Add(radioButton2);
             groupBox1.Controls.Add(radioButton1);
             groupBox1.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            groupBox1.Location = new Point(402, 130);
+            groupBox1.ForeColor = Color.FromArgb(245, 235, 224);
+            groupBox1.Location = new Point(402, 185);
             groupBox1.Margin = new Padding(4, 3, 4, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4, 3, 4, 3);
@@ -252,6 +296,7 @@
             // radioButton4
             // 
             radioButton4.AutoSize = true;
+            radioButton4.BackColor = Color.FromArgb(53, 34, 8);
             radioButton4.Location = new Point(230, 107);
             radioButton4.Margin = new Padding(4, 3, 4, 3);
             radioButton4.Name = "radioButton4";
@@ -259,11 +304,12 @@
             radioButton4.TabIndex = 3;
             radioButton4.TabStop = true;
             radioButton4.Text = "Отменена";
-            radioButton4.UseVisualStyleBackColor = true;
+            radioButton4.UseVisualStyleBackColor = false;
             // 
             // radioButton3
             // 
             radioButton3.AutoSize = true;
+            radioButton3.BackColor = Color.FromArgb(53, 34, 8);
             radioButton3.Location = new Point(230, 45);
             radioButton3.Margin = new Padding(4, 3, 4, 3);
             radioButton3.Name = "radioButton3";
@@ -271,11 +317,12 @@
             radioButton3.TabIndex = 2;
             radioButton3.TabStop = true;
             radioButton3.Text = "Изпратена";
-            radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.UseVisualStyleBackColor = false;
             // 
             // radioButton2
             // 
             radioButton2.AutoSize = true;
+            radioButton2.BackColor = Color.FromArgb(53, 34, 8);
             radioButton2.Location = new Point(26, 107);
             radioButton2.Margin = new Padding(4, 3, 4, 3);
             radioButton2.Name = "radioButton2";
@@ -283,11 +330,12 @@
             radioButton2.TabIndex = 1;
             radioButton2.TabStop = true;
             radioButton2.Text = "Завършена";
-            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.UseVisualStyleBackColor = false;
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
+            radioButton1.BackColor = Color.FromArgb(53, 34, 8);
             radioButton1.Location = new Point(25, 45);
             radioButton1.Margin = new Padding(4, 3, 4, 3);
             radioButton1.Name = "radioButton1";
@@ -295,11 +343,13 @@
             radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
             radioButton1.Text = "Обрабова се";
-            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.UseVisualStyleBackColor = false;
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(612, 57);
+            textBox2.BackColor = Color.FromArgb(245, 235, 224);
+            textBox2.ForeColor = Color.FromArgb(53, 34, 8);
+            textBox2.Location = new Point(595, 101);
             textBox2.Margin = new Padding(4, 3, 4, 3);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(162, 30);
@@ -308,8 +358,10 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.BackColor = Color.FromArgb(245, 235, 224);
             label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label3.Location = new Point(432, 57);
+            label3.ForeColor = Color.FromArgb(53, 34, 8);
+            label3.Location = new Point(416, 101);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(141, 26);
@@ -318,30 +370,23 @@
             // 
             // button4
             // 
+            button4.BackColor = Color.FromArgb(245, 235, 224);
             button4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
+            button4.ForeColor = Color.FromArgb(53, 34, 8);
             button4.Location = new Point(1122, 570);
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(129, 42);
             button4.TabIndex = 1;
             button4.Text = "Назад";
-            button4.UseVisualStyleBackColor = true;
+            button4.UseVisualStyleBackColor = false;
             button4.Click += button4_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label4.Location = new Point(24, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(186, 26);
-            label4.TabIndex = 8;
-            label4.Text = "Всички поръчки:";
             // 
             // UsersOrders
             // 
             AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(53, 34, 8);
             ClientSize = new Size(1264, 624);
             Controls.Add(button4);
             Controls.Add(tabControl1);

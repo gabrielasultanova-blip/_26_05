@@ -25,5 +25,10 @@ namespace _26_05.Entities
         public User User { get; set; } 
 
         public ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
+
+        public override string ToString()
+        {
+            return $"Поръчка: {Id}. | Дата: {OrderDate.ToString("dd.MM.yyyy HH:mm")} | Статус: {Status}";
+        }
     }
 }

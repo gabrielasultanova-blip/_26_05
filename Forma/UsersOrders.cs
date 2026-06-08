@@ -180,7 +180,11 @@ namespace Forma
 
             MessageBox.Show($"Статусът на поръчка №{orderId} беше сменен на {newStatus}!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-       
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
