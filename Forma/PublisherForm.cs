@@ -104,6 +104,11 @@ namespace Forma
                 MessageBox.Show("Моля, въведете валидно ID на издателство за редакция!");
                 return;
             }
+            if(textBox3.Text == "") 
+            {
+                MessageBox.Show("Моля, въведете ID на издателството!");
+                return;
+            }
 
             var allPublishers = await controller.GetAllAsync();
             var existingPublisher = allPublishers.Find(p => p.Id == publisherId);

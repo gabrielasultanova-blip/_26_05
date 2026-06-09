@@ -79,6 +79,11 @@ namespace Forma
                 MessageBox.Show("Въведете валидна възраст за автора между 18 and 120 години!");
                 return;
             }
+            if (textBox3.Text == " ")
+            {
+                MessageBox.Show("Въведете възраст за автора!");
+                return;
+            }
 
             Author newAuthor = new Author
             {
@@ -129,6 +134,11 @@ namespace Forma
             if (age < 18 || age > 120)
             {
                 MessageBox.Show("Възрастта трябва да бъде цяло число между 18 и 120!");
+                return;
+            }
+            if (textBox8.Text == " ")
+            {
+                MessageBox.Show("Въведете възраст за автора!");
                 return;
             }
 

@@ -23,6 +23,12 @@ namespace Forma
                 Role = Role.User
             };
 
+            if(textBox1.Text == "" || textBox2.Text == "" || textBox3.Text == "" || textBox4.Text == "")
+            {
+                MessageBox.Show("Моля попълнете всички полета!!!");
+                return;
+            }
+
             await userController.AddAsync(user);
 
             MessageBox.Show("Успешна регистрация!!!");
