@@ -35,7 +35,14 @@ namespace Forma
 
         private async Task RefreshDeleteListBoxAsync()
         {
+            var users = await controller.GetAllAsync();
 
+            listBox4.DataSource = null;
+
+            listBox4.DataSource = users.Select(u =>
+                $"Потребител: {u.Id}. | Потребителско име: {u.Username} | Имейл: {u.Email}"
+            ).ToList();
+            listBox4.Tag = users;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -63,25 +70,27 @@ namespace Forma
             var allUsers = await controller.GetAllAsync();
             var userToCheck = allUsers.Find(u => u.Id == userId);
 
-            if (userToCheck != null && userToCheck.Orders != null && userToCheck.Orders.Count > 0)
-            {
-                DialogResult cascadeResult = MessageBox.Show(
-                    $"Внимание! Потребителят '{userToCheck.Username}' има {userToCheck.Orders.Count} направени поръчки.\n" +
-                    "Ако го изтриете, всички негови поръчки и хронология също ще бъдат изтрити от базата данни каскадно!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?");
+            DialogResult cascadeResult = MessageBox.Show(
+     $"Внимание! Потребителят '{userToCheck.Username}' има {userToCheck.Orders.Count} направени поръчки.\n" +
+     "Ако го изтриете, всички негови поръчки и хронология също ще бъдат изтрити от базата данни каскадно!\n\n" +
+     "Сигурни ли сте, че искате да продължите?",
+     "Потвърждение",
+     MessageBoxButtons.YesNo,
+     MessageBoxIcon.Warning);
 
-                if (cascadeResult == DialogResult.No)
-                {
-                    return;
-                }
+            if (cascadeResult != DialogResult.Yes)
+            {
+                return;
             }
-            else
-            {
-                DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете потребител с ID {userId}?",
-                    "Потвърждение за изтриване");
+            DialogResult result = MessageBox.Show(
+      $"Наистина ли искате да изтриете потребител с ID {userId}?",
+      "Потвърждение",
+      MessageBoxButtons.YesNo,
+      MessageBoxIcon.Question);
 
-                if (result == DialogResult.No) return;
+            if (result != DialogResult.Yes)
+            {
+                return;
             }
 
             await controller.DeleteAsync(userId);
@@ -123,7 +132,7 @@ namespace Forma
 
         private async void button6_Click(object sender, EventArgs e)
         {
-            await controller.GetAllAsync();
+            await RefreshDeleteListBoxAsync();
         }
 
         private void tabPage2_Click(object sender, EventArgs e)

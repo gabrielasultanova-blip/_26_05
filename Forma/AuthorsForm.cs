@@ -185,11 +185,14 @@ namespace Forma
             if (authorToCheck != null && authorToCheck.Books != null && authorToCheck.Books.Count > 0)
             {
                 DialogResult cascadeResult = MessageBox.Show(
-                    $"Внимание! Авторът '{authorToCheck.FirstName} {authorToCheck.LastName}' има {authorToCheck.Books.Count} регистрирани книги.\n" +
-                    "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от магазина!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?");
+    $"Внимание! Авторът '{authorToCheck.FirstName} {authorToCheck.LastName}' има {authorToCheck.Books.Count} регистрирани книги.\n" +
+    "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от магазина!\n\n" +
+    "Сигурни ли сте, че искате да продължите?",
+    "Потвърждение",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Warning);
 
-                if (cascadeResult == DialogResult.No)
+                if (cascadeResult != DialogResult.Yes)
                 {
                     return;
                 }
@@ -197,7 +200,9 @@ namespace Forma
             else
             {
                 DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете автора с ID {authorId}?");
+                    $"Наистина ли искате да изтриете автора с ID {authorId}?", "Потвърждение",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Question);
 
                 if (result == DialogResult.No) return;
             }

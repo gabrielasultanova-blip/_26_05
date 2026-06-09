@@ -260,15 +260,19 @@ namespace Forma
             }
 
             DialogResult result = MessageBox.Show(
-                $"Наистина ли искате да изтриете книгата с ID {bookId}?");
+    $"Наистина ли искате да изтриете книгата с ID {bookId}?",
+    "Потвърждение",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Question);
 
-            if (result == DialogResult.Yes)
+            if (result != DialogResult.Yes)
             {
- 
-                    await controller.DeleteAsync(bookId);
-                    MessageBox.Show("Книгата беше изтрита успешно!");
-                    await RefreshDeleteListBoxAsync();
+                return;
             }
+
+            await controller.DeleteAsync(bookId);
+            MessageBox.Show("Книгата беше изтрита успешно!");
+
             await RefreshDeleteListBoxAsync();
             await LoadComboBoxDataAsync();
         }

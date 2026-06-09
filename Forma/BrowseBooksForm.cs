@@ -180,6 +180,7 @@ namespace Forma
                 HideAllFilterControls();
                 label1.Text = "Ценови диапазон:";
                 label1.Visible = true;
+                label2.Visible = true;
                 button1.Visible = true;
                 textBox2.Visible = true;
                 textBox3.Visible = true;

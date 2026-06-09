@@ -147,7 +147,7 @@
             button5.BackColor = Color.FromArgb(47, 43, 40);
             button5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             button5.ForeColor = Color.FromArgb(245, 241, 234);
-            button5.Location = new Point(813, 151);
+            button5.Location = new Point(813, 113);
             button5.Name = "button5";
             button5.Size = new Size(157, 68);
             button5.TabIndex = 4;
@@ -160,7 +160,7 @@
             button4.BackColor = Color.FromArgb(245, 241, 234);
             button4.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             button4.ForeColor = Color.FromArgb(47, 43, 40);
-            button4.Location = new Point(808, 247);
+            button4.Location = new Point(808, 217);
             button4.Margin = new Padding(4, 3, 4, 3);
             button4.Name = "button4";
             button4.Size = new Size(162, 68);
@@ -174,7 +174,7 @@
             button3.BackColor = Color.FromArgb(47, 43, 40);
             button3.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
             button3.ForeColor = Color.FromArgb(245, 241, 234);
-            button3.Location = new Point(808, 349);
+            button3.Location = new Point(808, 325);
             button3.Margin = new Padding(4, 3, 4, 3);
             button3.Name = "button3";
             button3.Size = new Size(157, 68);

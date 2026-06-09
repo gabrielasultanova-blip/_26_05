@@ -79,7 +79,7 @@ namespace Forma
         {
             int selectedIndex = listBox2.SelectedIndex;
 
-            if (selectedIndex == null)
+            if (selectedIndex == -1)
             {
                 MessageBox.Show("Моля, изберете продукт от количката, който да премахнете!");
                 return;
@@ -97,9 +97,15 @@ namespace Forma
                 return;
             }
 
-            var confirmResult = MessageBox.Show("Сигурни ли сте, че искате да завършите поръчката?");
-            if (confirmResult != DialogResult.Yes) return;
 
+            var confirmResult = MessageBox.Show(
+    "Сигурни ли сте, че искате да завършите поръчката?",
+    "Потвърждение",
+    MessageBoxButtons.YesNo
+);
+
+            if (confirmResult != DialogResult.Yes)
+                return;
             Order newOrder = new Order
             {
                 OrderDate = DateTime.Now,
@@ -108,6 +114,8 @@ namespace Forma
             };
 
             await orderController.AddAsync(newOrder);
+
+            MessageBox.Show($"Order ID = {newOrder.Id}");
 
             foreach (var cartItem in ShoppingCart.Items)
             {

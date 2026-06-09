@@ -158,25 +158,23 @@ namespace Forma
 
             var allPublishers = await controller.GetAllAsync();
             var publisherToCheck = allPublishers.Find(p => p.Id == publisherId);
+            DialogResult cascadeResult = MessageBox.Show(
+    $"Внимание! Издателство '{publisherToCheck.Name}' има {publisherToCheck.Books.Count} регистрирани книги.\n" +
+    "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от базата данни!\n\n" +
+    "Сигурни ли сте, че искате да продължите?",
+    "Потвърждение",
+    MessageBoxButtons.YesNo,
+    MessageBoxIcon.Warning);
 
-            if (publisherToCheck != null && publisherToCheck.Books != null && publisherToCheck.Books.Count > 0)
+            DialogResult result = MessageBox.Show(
+     $"Наистина ли искате да изтриете издателството с ID {publisherId}?",
+     "Потвърждение",
+     MessageBoxButtons.YesNo,
+     MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
             {
-                DialogResult cascadeResult = MessageBox.Show(
-                    $"Внимание! Издателство '{publisherToCheck.Name}' има {publisherToCheck.Books.Count} регистрирани книги.\n" +
-                    "Ако го изтриете, всички негови книги СЪЩО ще бъдат изтрити автоматично от базата данни!\n\n" +
-                    "Сигурни ли сте, че искате да продължите?");
-
-                if (cascadeResult == DialogResult.No)
-                {
-                    return;
-                }
-            }
-            else
-            {
-                DialogResult result = MessageBox.Show(
-                    $"Наистина ли искате да изтриете издателството с ID {publisherId}?");
-
-                if (result == DialogResult.No) return;
+                return;
             }
 
             await controller.DeleteAsync(publisherId);
