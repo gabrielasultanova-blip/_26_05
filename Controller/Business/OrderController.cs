@@ -34,6 +34,7 @@ namespace Controller.Business
             return await context.Orders
                 .Include(o => o.User)
                 .Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Book)
                 .ToListAsync();
         }
 

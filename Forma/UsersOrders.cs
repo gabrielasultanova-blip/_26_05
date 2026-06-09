@@ -34,7 +34,8 @@ namespace Forma
 
             foreach (var order in orders)
             {
-                string username = order.User != null ? order.User.Username : $"Потребител ID: {order.UserId}";
+                string username = order.User != null ? order.User.Username: $"Потребител ID: {order.UserId}";
+                var bookTitle = order.OrderItems != null && order.OrderItems.Count > 0 ? order.OrderItems.First().Book.Title : "Няма информация за книги";
                 listBox1.Items.Add($"{order.Id} | Дата: {order.OrderDate:yyyy-MM-dd HH:mm} | Клиент: {username} | Статус: {order.Status}");
             }
 

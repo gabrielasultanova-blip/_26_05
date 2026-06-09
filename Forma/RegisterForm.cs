@@ -28,6 +28,11 @@ namespace Forma
                 MessageBox.Show("Моля попълнете всички полета!!!");
                 return;
             }
+            if(textBox3.Text != textBox4.Text)
+            {
+                MessageBox.Show("Паролите не съвпадат!!!");
+                return;
+            }   
 
             await userController.AddAsync(user);
 

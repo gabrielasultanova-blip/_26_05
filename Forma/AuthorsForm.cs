@@ -67,6 +67,8 @@ namespace Forma
                 return;
             }
 
+
+
             if (textBox1.Text.Length > 50 || textBox2.Text.Length > 50 || textBox4.Text.Length > 50)
             {
                 MessageBox.Show("Полетата не могат да съдържат повече от 50 символа!");
