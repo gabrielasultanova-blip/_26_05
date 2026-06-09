@@ -45,36 +45,6 @@ namespace Forma
 
         private async void button5_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
-            {
-                MessageBox.Show("Моля, въведете ID на потребител!");
-                return;
-            }
-
-            int userId = int.Parse(textBox1.Text.Trim());
-
-            var allUsers = await controller.GetAllAsync();
-            var userToPromote = allUsers.Find(u => u.Id == userId);
-
-            if (userToPromote == null)
-            {
-                MessageBox.Show("Не е намерен потребител с такова ID!");
-                return;
-            }
-
-            if (userToPromote.Role == Role.Admin)
-            {
-                MessageBox.Show("Този потребител вече е Администратор!");
-                return;
-            }
-
-            userToPromote.Role = Role.Admin;
-            await controller.UpdateAsync(userId, userToPromote);
-
-            MessageBox.Show($"Потребител {userToPromote.Username} вече е Администратор!");
-
-            textBox1.Clear();
-            await RefreshDeleteListBoxAsync();
 
         }
 
@@ -109,7 +79,7 @@ namespace Forma
             {
                 DialogResult result = MessageBox.Show(
                     $"Наистина ли искате да изтриете потребител с ID {userId}?",
-                    "Потвърждение за изтриване";
+                    "Потвърждение за изтриване");
 
                 if (result == DialogResult.No) return;
             }

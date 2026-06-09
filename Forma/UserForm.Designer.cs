@@ -42,22 +42,16 @@
             button2 = new Button();
             label4 = new Label();
             listBox4 = new ListBox();
-            tabPage4 = new TabPage();
-            button5 = new Button();
-            textBox1 = new TextBox();
-            label5 = new Label();
             button3 = new Button();
             tabControl1.SuspendLayout();
             tabPage2.SuspendLayout();
             tabPage3.SuspendLayout();
-            tabPage4.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(tabPage2);
             tabControl1.Controls.Add(tabPage3);
-            tabControl1.Controls.Add(tabPage4);
             tabControl1.Location = new Point(35, 8);
             tabControl1.Margin = new Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
@@ -226,58 +220,6 @@
             listBox4.TabIndex = 0;
             listBox4.SelectedIndexChanged += listBox4_SelectedIndexChanged;
             // 
-            // tabPage4
-            // 
-            tabPage4.BackgroundImage = (Image)resources.GetObject("tabPage4.BackgroundImage");
-            tabPage4.Controls.Add(button5);
-            tabPage4.Controls.Add(textBox1);
-            tabPage4.Controls.Add(label5);
-            tabPage4.Location = new Point(4, 32);
-            tabPage4.Margin = new Padding(4, 3, 4, 3);
-            tabPage4.Name = "tabPage4";
-            tabPage4.Padding = new Padding(4, 3, 4, 3);
-            tabPage4.Size = new Size(1091, 469);
-            tabPage4.TabIndex = 3;
-            tabPage4.Text = "Направи админ";
-            tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.FromArgb(245, 235, 224);
-            button5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            button5.ForeColor = Color.FromArgb(53, 34, 8);
-            button5.Location = new Point(420, 274);
-            button5.Margin = new Padding(4, 3, 4, 3);
-            button5.Name = "button5";
-            button5.Size = new Size(181, 48);
-            button5.TabIndex = 2;
-            button5.Text = "Направи админ";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
-            // 
-            // textBox1
-            // 
-            textBox1.BackColor = Color.FromArgb(245, 235, 224);
-            textBox1.ForeColor = Color.FromArgb(53, 34, 8);
-            textBox1.Location = new Point(523, 155);
-            textBox1.Margin = new Padding(4, 3, 4, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(317, 30);
-            textBox1.TabIndex = 1;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.FromArgb(245, 235, 224);
-            label5.Font = new Font("Times New Roman", 13.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 204);
-            label5.ForeColor = Color.FromArgb(53, 34, 8);
-            label5.Location = new Point(191, 155);
-            label5.Margin = new Padding(4, 0, 4, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(281, 26);
-            label5.TabIndex = 0;
-            label5.Text = "Username на потребител:";
-            // 
             // button3
             // 
             button3.BackColor = Color.FromArgb(245, 235, 224);
@@ -309,8 +251,6 @@
             tabPage2.PerformLayout();
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
-            tabPage4.ResumeLayout(false);
-            tabPage4.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -320,7 +260,6 @@
         private TabPage tabPage2;
         private Button button1;
         private TabPage tabPage3;
-        private TabPage tabPage4;
         private Button button3;
         private ListBox listBox3;
         private ListBox listBox2;
@@ -330,9 +269,6 @@
         private Label label4;
         private ListBox listBox4;
         private Label label6;
-        private Button button5;
-        private TextBox textBox1;
-        private Label label5;
         private Button button6;
     }
 }
